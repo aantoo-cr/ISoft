@@ -1,0 +1,30 @@
+.error-toast {
+  background-color: #E30422;
+  height: 42px;
+  width: 450px;
+  border-radius: 12px;
+  position: relative;
+  border: 2px solid #efefef;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.toast-message {
+  margin: 0;
+  font-size: 0.85em;
+  text-align: center;
+  color: #efefef;
+  font-weight: 400;
+  padding-left: 4%;
+}
+
+.error-toast-icon {
+  position: absolute;
+  left: 6%;
+  font-size: 1.2em;
+  color: #efefef;
+}

@@ -1,0 +1,11 @@
+<div class="nav-bar">
+  <input
+    #searchInput
+    type="text"
+    placeholder="Buscar equipo"
+    class="search-input"
+    (input)="onSearchChange(searchInput.value)" />
+  <div class="magnifying-glass-container">
+    <fa-icon [icon]="faMagnifyingGlass" class="magnifying-glass"></fa-icon>
+  </div>
+</div>

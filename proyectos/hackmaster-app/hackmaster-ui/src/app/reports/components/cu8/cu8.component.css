@@ -1,0 +1,79 @@
+/* Estilo global para los encabezados h2 y h3 */
+h2 {
+  color: #007bff; /* Azul para el título principal */
+  font-size: 24px; /* Tamaño de fuente más grande */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: #343a40; /* Gris oscuro para subtítulos */
+  font-size: 20px; /* Tamaño de fuente más pequeño que h2 */
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Estilo para las métricas del hackathon */
+.hackathon-metrics {
+  background-color: #f9f9f9; /* Fondo gris claro */
+  border: 1px solid #ddd; /* Borde gris claro */
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+.hackathon-metrics h4 {
+  color: #007bff; /* Color azul para los nombres de los hackatones */
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.hackathon-metrics p {
+  color: #495057; /* Gris oscuro para el texto */
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 5px 0;
+}
+
+/* Estilo para el botón */
+.button {
+  background-color: #007bff; /* Fondo azul */
+  color: white; /* Texto blanco */
+  padding: 10px 20px; /* Espaciado del botón */
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Efecto de transición en hover */
+}
+
+.button:hover {
+  background-color: #0056b3; /* Fondo azul más oscuro al pasar el ratón */
+}
+
+/* Estilo para alertas */
+.alert {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+/* Estilo para el contenedor */
+.container {
+  max-width: 1200px; /* Limitar el ancho máximo */
+  margin: 0 auto;
+  padding: 20px;
+}

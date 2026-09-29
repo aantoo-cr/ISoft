@@ -1,0 +1,44 @@
+# macOS
+.DS_Store
+
+# Node.js
+node_modules/
+.next/
+dist/
+build/
+coverage/
+.npm/
+.pnpm-store/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Java
+target/
+*.class
+
+# IDE
+.idea/
+.vscode/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# SonarQube
+.scannerwork/
+
+# Temporary files
+*.tmp
+*.swp
+
+# Docker virtual disks
+*.raw
+*.qcow2

@@ -1,0 +1,10 @@
+import { HttpInterceptorFn } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
+
+describe('AuthInterceptor', () => {
+  const interceptor: HttpInterceptorFn = (req, next) => AuthInterceptor(req, next);
+
+  it('should be created', () => {
+    expect(interceptor).toBeTruthy();
+  });
+});

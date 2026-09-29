@@ -1,0 +1,23 @@
+<div class="container flex flex-col items-center px-6 mx-auto">
+    <svg class="w-12 h-12 mt-8 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11H9v4h2V7zm0 6H9v2h2v-2z"
+              clip-rule="evenodd"></path>
+    </svg>
+    <h1 class="text-4xl font-semibold text-gray-700 dark:text-gray-200 mt-4">
+        ¿Estás seguro de que quieres cerrar sesión?
+    </h1>
+    <p class="text-gray-700 dark:text-gray-300 mt-2 text-center">
+        Al cerrar sesión, se eliminarán tus datos de la sesión actual.
+    </p>
+    <button
+        (click)="logout()"
+        class="mt-6 px-6 py-3 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2">
+        Confirmar Cierre de Sesión
+    </button><button
+        (click)="redirectHome()"
+        class="mt-4 text-sm text-gray-600 hover:underline dark:text-gray-400">
+        Volver al dashboard
+    </button>
+
+</div>

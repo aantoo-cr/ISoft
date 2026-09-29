@@ -1,0 +1,20 @@
+<app-header></app-header>
+
+<div class="photo-upload-wrapper">
+  <div class="photo-upload-section">
+    <div class="photo-upload-content">
+      <h1 class="photo-upload-title">Sube una foto</h1>
+      <h3 class="photo-upload-description">Subir una foto ayudará a la gente a identificar más rápido tu equipo.</h3>
+      <button class="upload-photo-btn" (click)="fileInput.click()">Añadir foto</button>
+      <input type="file" #fileInput style="display: none;" (change)="onFileSelected($event)" accept="image/*">
+    </div>
+    <div class="uploaded-photo-preview">
+      @if (imageUrl) {
+      <img [src]="imageUrl" alt="Foto de equipo">
+      }
+    </div>
+    <app-x-button class="x-btn" (click)="onClose()"></app-x-button>
+  </div>
+</div>
+
+<app-footer></app-footer>

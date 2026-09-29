@@ -1,0 +1,36 @@
+<div class="flex h-[85dvh] bg-gray-100 rounded-t-[1rem]">
+  <div class="w-1/3 border-r border-gray-300 overflow-y-auto bg-white shadow-lg rounded-l-[1rem]">
+    <div class="p-4 border-b border-gray-300 bg-white shadow-md">
+      <strong class="text-xl">Lista de Chats</strong>
+    </div>
+    <ul>
+      <li *ngFor="let chatUser of chatsList"
+          class="flex items-center p-4 cursor-pointer hover:bg-gray-200 rounded-lg border-b border-gray-300"
+          [ngClass]="{'bg-gray-300': chatUser === selectedChatUser}"
+          (click)="selectChat(chatUser)">
+        <img src="https://e7.pngegg.com/pngimages/223/244/png-clipart-computer-icons-avatar-user-profile-avatar-heroes-rectangle.png" alt="{{chatUser.name}}"
+        class="w-12 h-12 rounded-full border border-black mr-4">
+        <div class="flex-1">
+          <strong class="block text-lg">{{chatUser.name}}</strong>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="flex-1 flex flex-col relative rounded-r-[1rem]" *ngIf="selectedChatUser">
+    <div class="flex items-center justify-between p-4 divide-y bg-white shadow-md rounded-tr-[1rem]">
+      <strong class="text-xl">{{selectedChatUser.name}}</strong>
+      <!-- <span>{{selectedChatUser.status}}</span> -->
+    </div>
+    <div class="flex-1 overflow-y-auto p-4 mb-16">
+      <div *ngFor="let message of selectedChatUser.messages" class="mb-4 p-4 bg-gray-200 rounded-lg">
+        <strong class="block">{{message.sender.name}}</strong>
+        <p class="text-gray-800">{{message.content}}</p>
+        <small class="text-gray-500">{{message.timestamp | date:'short'}}</small>
+      </div>
+    </div>
+    <div class="p-4 border-t border-gray-300 bg-white flex items-center bottom-0 left-1/5 rounded-t-[1rem]">
+      <input [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" placeholder="Escribe un mensaje..." class="flex-1 p-2 border border-gray-300 rounded-lg">
+      <button (click)="sendMessage()" class="ml-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700">Enviar</button>
+    </div>
+  </div>
+</div>

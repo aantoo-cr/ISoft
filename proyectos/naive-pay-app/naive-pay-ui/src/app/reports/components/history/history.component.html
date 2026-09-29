@@ -1,0 +1,47 @@
+<div class="container">
+    <label class="text-3xl font-bold text-gray-800 underline decoration-blue-500">
+        Historial de Transacciones
+    </label>
+    <div class="filter-display">
+        <button (click)="toggleFilterInputs()" class="filter-button">Filtrar</button>
+        <div *ngIf="showFilter" class="filter-inputs">
+            <app-filtro
+                (filterApplied)="aplicarFiltro($event)"
+                (filterCleared)="loadTransactions()">
+            </app-filtro>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Monto</th>
+                <th>Descripción</th>
+                <th>Cuenta de origen</th>
+                <th>Cuenta de destino</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of filteredTransactions">
+                <td>{{ transaction.date | date: 'dd/MM/yyyy' }}</td>
+                <td>{{ transaction.time}}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.description }}</td>
+                <td>{{ transaction.originAccount.accountNumber }}</td>
+                <td>{{ transaction.destinationAccount.accountNumber }}</td>
+                <td>
+                    {{ transaction.state === 'PENDING' ? 'Pendiente' :
+                       transaction.state === 'APPROVED' ? 'Aprobado' :
+                       transaction.state === 'REJECTED' ? 'Rechazado' : transaction.state }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <app-export-pdf
+    *ngIf="accountHolder"
+    [filters]="currentFilters"
+    [accountNumber]="accountHolder">
+    </app-export-pdf>
+</div>

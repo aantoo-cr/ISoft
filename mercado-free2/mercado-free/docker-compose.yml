@@ -1,0 +1,16 @@
+services:
+  mercado-free-backend:
+    container_name: mercado-free-api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
+  mercado-free-frontend:
+    container_name: mercado-free-ui
+    build:
+      context: ./ui
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar Dispositivo</title>
+    <link href="/dist/output.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-white flex flex-col">
+<!-- Main Content -->
+<div class="flex-1 flex flex-col">
+    <!-- Content -->
+    <div class="flex-1 flex flex-col px-6 py-12 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md mt-12">
+            <h2 class="text-center text-2xl font-bold tracking-tight text-gray-900">Naive Pay</h2>
+            <h1 class="mt-4 text-center text-3xl font-semibold text-gray-800">Ingresar Dispositivo</h1>
+        </div>
+
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+            <form class="space-y-4" (ngSubmit)="addDevice()">
+                <!-- Campo de correo electrónico -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-900">Correo Electrónico</label>
+                    <div class="mt-2">
+                        <input type="email" id="email" name="email" placeholder="Ingrese su correo electrónico"
+                               [(ngModel)]="email" required aria-label="Correo Electrónico"
+                               class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 py-2 px-3 text-gray-900 sm:text-sm">
+                    </div>
+                </div>
+
+                <!-- Campo de nombre de dispositivo -->
+                <div>
+                    <label for="deviceName" class="block text-sm font-medium text-gray-900">Dispositivo</label>
+                    <div class="mt-2">
+                        <input type="text" id="deviceName" name="deviceName" placeholder="Ingrese el nombre de su dispositivo"
+                               [(ngModel)]="deviceName" required
+                               class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 py-2 px-3 text-gray-900 sm:text-sm">
+                    </div>
+                </div>
+
+                <!-- Campo de modelo de dispositivo -->
+                <div>
+                    <label for="deviceModel" class="block text-sm font-medium text-gray-900">Modelo</label>
+                    <div class="mt-2">
+                        <input type="text" id="deviceModel" name="deviceModel" placeholder="Ingrese el modelo del dispositivo"
+                               [(ngModel)]="deviceModel" required
+                               class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 py-2 px-3 text-gray-900 sm:text-sm">
+                    </div>
+                </div>
+
+                <!-- Botón de agregar dispositivo -->
+                <div class="flex justify-center mt-6">
+                    <button type="submit"
+                            class="bg-purple-600 text-white px-6 py-3 rounded-lg text-lg font-semibold shadow-sm hover:bg-purple-700 hover:shadow-md transition duration-300 disabled:bg-gray-400">
+                        Agregar Dispositivo
+                    </button>
+                </div>
+
+                <!-- Mensaje dinámico -->
+                <div class="mt-6 text-center">
+                    <p *ngIf="message"
+                       [class.text-red-500]="isError"
+                       [class.text-green-500]="!isError"
+                       class="text-sm font-medium">
+                        {{ message }}
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

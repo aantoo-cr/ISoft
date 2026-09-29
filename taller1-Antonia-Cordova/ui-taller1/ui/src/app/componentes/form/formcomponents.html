@@ -1,0 +1,36 @@
+<div class="form-container">
+  <h2>Consulta de Presidente por RUT</h2>
+  <form (ngSubmit)="onSubmit()" #presidentForm="ngForm">
+    <div class="form-group">
+      <label for="rut">RUT de la Empresa:</label>
+      <input
+        type="text"
+        id="rut"
+        name="rut"
+        [(ngForm)]="rut"
+        required
+        placeholder="Ingrese el RUT (ej: 12345678-9)"
+        class="form-control"
+      >
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="!presidentForm.form.valid || loading"
+      class="btn btn-primary"
+    >
+      {{ loading ? 'Consultando...' : 'Buscar Presidente' }}
+    </button>
+  </form>
+
+  <!-- Resultado -->
+  <div *ngIf="presidente" class="result-container">
+    <h3>Resultado:</h3>
+    <p><strong>Presidente:</strong> {{ presidente }}</p>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="error" class="error-container">
+    <p class="error-message">{{ error }}</p>
+  </div>
+</div>

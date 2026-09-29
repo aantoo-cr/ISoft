@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+.alert-info {
+  color: #17a2b8;
+}
+
+.alert-danger {
+  color: #dc3545;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo para el título */
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2a3b8d; /* Azul oscuro */
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+/* Estilo para la tabla */
+.table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.table th {
+  background-color: #2a3b8d;
+  color: white;
+  font-weight: bold;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Estilo para el botón */
+.button {
+  background-color: #3a6ff7; /* Azul claro */
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button {
+  text-align: center;
+  margin-top: 30px;
+}
+
+
+.button:hover {
+  background-color: #3457d5; /* Azul ligeramente más oscuro al pasar el cursor */
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(58, 111, 247, 0.5);
+}
+
+/* Estilo para mensajes de error e información */
+.alert {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}

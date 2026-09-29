@@ -1,0 +1,54 @@
+<!-- Sección Azul Superior que Cubre Toda la Parte Superior -->
+<div class="bg-blue-600 w-full h-24"></div>
+<app-header></app-header>
+
+<!-- Botón para Agregar Premio -->
+<div class="container mx-auto mt-4 text-center">
+  <button
+    (click)="openForm()"
+    class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition"
+  >
+    Agregar Premio
+  </button>
+</div>
+
+<!-- Condicional para Mostrar Tabla o Mensaje de No Hay Premios -->
+<div *ngIf="prizes.length > 0; else noPrizes" class="container mx-auto -mt-0 relative">
+  <div class="p-8 bg-white rounded-lg shadow-lg">
+    <h3 class="text-2xl font-semibold mb-4 text-blue-600 text-center">Lista de Premios</h3>
+    <div class="overflow-x-auto">
+      <table class="min-w-full border-collapse bg-white rounded-lg shadow-md overflow-hidden">
+        <thead class="bg-blue-600 text-white">
+        <tr>
+          <th class="px-6 py-4 text-left font-semibold">Posición</th>
+          <th class="px-6 py-4 text-left font-semibold">Nombre del Premio</th>
+          <th class="px-6 py-4 text-left font-semibold">Descripción</th>
+          <th class="px-6 py-4 text-left font-semibold">Valor</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let prize of prizes" class="hover:bg-blue-50 transition">
+          <td class="px-6 py-4 border-t">{{ prize.position }}</td>
+          <td class="px-6 py-4 border-t">{{ prize.name }}</td>
+          <td class="px-6 py-4 border-t">{{ prize.description }}</td>
+          <td class="px-6 py-4 border-t">{{ prize.valueReward | currency }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Mensaje de No hay Premios con Sección Azul Mejorada -->
+<ng-template #noPrizes>
+  <div class="bg-blue-600 text-white py-16 px-8 rounded-lg text-center shadow-lg mt-4">
+    <h3 class="text-2xl font-bold mb-4">No hay premios disponibles</h3>
+    <p class="text-lg mb-4">Aún no se han registrado premios para este desafío. Vuelve más tarde para ver las actualizaciones.</p>
+  </div>
+</ng-template>
+
+<!-- Formulario Emergente para Agregar Premios -->
+<app-prize-form *ngIf="isFormOpen" [challengeId]="challengeId" (close)="closeForm()"></app-prize-form>
+
+<!-- Footer con Espaciado Mejorado -->
+<app-footer class="mt-16"></app-footer>

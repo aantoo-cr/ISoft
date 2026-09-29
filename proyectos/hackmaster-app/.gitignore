@@ -1,0 +1,30 @@
+/.idea/
+/.vscode/
+/hackmaster-ui/.vscode/
+/hackmaster-ui/node_modules/
+/.hintrc
+
+/hackmaster-api/.idea/
+/hackmaster-api/.mvn/
+/hackmaster-api/.mvn/wrapper
+/hackmaster-api/target/
+
+
+# Compiled output
+/hackmaster-ui/dist
+/hackmaster-ui/tmp
+/hackmaster-ui/out-tsc
+/hackmaster-ui/bazel-out
+
+/hackmaster-ui/npm-debug.log
+/hackmaster-ui/yarn-error.log
+
+
+# Miscellaneous
+/hackmaster-ui/.angular/cache
+/hackmaster-ui.sass-cache/
+/hackmaster-ui/connect.lock
+/hackmaster-ui/coverage
+/hackmaster-ui/libpeerconnection.log
+/hackmaster-ui/testem.log
+/hackmaster-ui/typings

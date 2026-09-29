@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+.alert-info {
+  color: #17a2b8;
+}
+
+.alert-danger {
+  color: #dc3545;
+}
+
+h3 {
+  margin-top: 20px;
+  font-size: 1.5em;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.container {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+h3 {
+  font-size: 20px;
+  color: #3a6ff7; /* Color azul para el nombre del hackathon */
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: square;
+  margin-left: 20px;
+}
+
+li {
+  font-size: 14px;
+}
+
+.back-button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button {
+  background-color: #3a6ff7; /* Azul claro */
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background-color: #3161b2; /* Color más oscuro en hover */
+}
+
+.button:focus {
+  outline: none;
+}

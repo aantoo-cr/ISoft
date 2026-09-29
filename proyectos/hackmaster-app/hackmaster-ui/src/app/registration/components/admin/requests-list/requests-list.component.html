@@ -1,0 +1,60 @@
+<div class="overflow-x-auto">
+  <table class="w-full text-sm text-left text-gray-300">
+    <thead class="text-xs uppercase bg-gray-800 text-gray-400">
+      <tr>
+        <th scope="col" class="px-4 py-3">#</th>
+        <th scope="col" class="px-4 py-3">Username</th>
+        <th scope="col" class="px-4 py-3">Email</th>
+        <th scope="col" class="px-4 py-3">Razón Social</th>
+        <th scope="col" class="px-4 py-3">Rut Organización</th>
+        <th scope="col" class="px-4 py-3">Nombre Representante</th>
+        <th scope="col" class="px-4 py-3">Rut Representante</th>
+        <th scope="col" class="px-4 py-3">Estado</th>
+        <th scope="col" class="px-4 py-3">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="bg-gray-800 border-b border-gray-700 hover:bg-gray-700"
+        *ngFor="let request of pendingRequests; let i = index"
+      >
+        <td class="px-4 py-3">{{ i + 1 }}</td>
+        <td class="px-4 py-3">{{ request.username }}</td>
+        <td class="px-4 py-3">{{ request.email }}</td>
+        <td class="px-4 py-3">{{ request.socialNameOrganization }}</td>
+        <td class="px-4 py-3">{{ request.rutOrganization }}</td>
+        <td class="px-4 py-3">{{ request.representativeName }}</td>
+        <td class="px-4 py-3">{{ request.rutRepresentative }}</td>
+        <td class="px-4 py-3">
+          <div class="flex items-center">
+            <ng-container *ngIf="request.status === 'PENDING'">
+              <span class="text-yellow-500 mr-1">&#9679;</span> Pendiente
+            </ng-container>
+            <ng-container *ngIf="request.status === 'APPROVED'">
+              <span class="text-green-500 mr-1">&#9679;</span> Aprobado
+            </ng-container>
+            <ng-container *ngIf="request.status === 'REJECTED'">
+              <span class="text-red-500 mr-1">&#9679;</span> Rechazado
+            </ng-container>
+          </div>
+        </td>
+        <td class="px-4 py-3 flex">
+          <button
+            *ngIf="request.id !== undefined"
+            (click)="approveRequest(request.id!)"
+            class="mr-3 text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2"
+          >
+            Aceptar
+          </button>
+          <button
+            *ngIf="request.id !== undefined"
+            (click)="rejectRequest(request.id!)"
+            class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

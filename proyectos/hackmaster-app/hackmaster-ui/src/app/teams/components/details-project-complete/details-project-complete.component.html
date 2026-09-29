@@ -1,0 +1,45 @@
+<app-header class="header"></app-header>
+<div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg" style="margin-top: 50px; margin-bottom: 50px;">
+  <h1 class="text-2xl font-bold mb-4 text-gray-800">Detalles del Proyecto</h1>
+
+  <!-- Indicador de carga -->
+  <div *ngIf="loading" class="text-center text-gray-500">
+    <p>Cargando detalles del proyecto...</p>
+  </div>
+
+  <!-- Mensaje de error -->
+  <div *ngIf="error" class="text-red-600 font-semibold">
+    <p>{{ error }}</p>
+  </div>
+
+  <!-- Detalles del proyecto -->
+  <div *ngIf="!loading && !error && projectInfo" class="bg-gray-100 p-4 rounded-lg shadow-md">
+    <h2 class="text-xl font-semibold mb-2 text-gray-700">{{ projectInfo.name }}</h2>
+    <p class="mb-4 text-gray-600">{{ projectInfo.description }}</p>
+    <p class="mb-2">
+      <strong class="text-gray-600">Repositorio:</strong>
+      <a [href]="projectInfo.repositoryUrl" target="_blank" class="text-blue-500 underline">
+        {{ projectInfo.repositoryUrl }}
+      </a>
+    </p>
+    <img
+      [src]="projectInfo.photoUrl"
+      alt="Imagen del proyecto"
+      class="w-full max-w-xs rounded-md shadow-md mb-4"
+    />
+  </div>
+
+  <!-- Botón para redirigir a 'Mis Equipos' -->
+  <div class="mt-8 text-center">
+    <button
+      (click)="goToMyTeams()"
+      class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition"
+    >
+      Ir a mis equipos
+    </button>
+  </div>
+</div>
+
+<app-footer class="footer bg-gray-100 text-center py-4">
+  <p class="text-sm text-gray-600">© 2024 Tu Proyecto. Todos los derechos reservados.</p>
+</app-footer>

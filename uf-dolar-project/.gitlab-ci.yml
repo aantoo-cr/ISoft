@@ -1,0 +1,96 @@
+variables:
+
+
+  BACKEND_IMAGE: $CI_REGISTRY/$CI_PROJECT_PATH/api-uf-dolar-project:latest
+  FRONTEND_IMAGE: $CI_REGISTRY/$CI_PROJECT_PATH/ui-uf-dolar-project:latest
+
+stages:
+  - package
+  - build
+  - documentation
+  - deploy-app-dev
+
+
+package-backend:
+  stage: package
+  image: maven:3.9-eclipse-temurin-17
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "develop"'
+  before_script:
+    - cd api-uf-dolar-project
+  script:
+    - mvn -B -q -DskipTests clean package
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - api-uf-dolar-project/target/*.jar
+
+
+build-backend:
+  stage: build
+  image: docker:24.0.5
+  services:
+    - name: docker:24.0.5-dind
+      command: ["--experimental"]
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "develop"'
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  before_script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+  script:
+    - docker build -t "$BACKEND_IMAGE" ./api-uf-dolar-project
+    - docker push "$BACKEND_IMAGE"
+
+
+
+build-frontend:
+  stage: build
+  image: docker:24.0.5
+  services:
+    - name: docker:24.0.5-dind
+      command: ["--experimental"]
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "develop"'
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  before_script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+  script:
+    - docker build -t "$FRONTEND_IMAGE" ./ui-uf-dolar-project
+    - docker push "$FRONTEND_IMAGE"
+
+
+documentation:
+  stage: documentation
+  image: maven:3.8.5-openjdk-17
+  only:
+    - develop
+  script:
+    - cd api-uf-dolar-project/
+    - mvn javadoc:javadoc
+  artifacts:
+    paths:
+      - api-uf-dolar-project/target/site/apidocs/*
+
+
+deploy-dev:
+  stage: deploy-app-dev
+  only:
+    - develop
+  before_script:
+    - 'which ssh-agent || (apt-get update -y && apt-get install -y openssh-client)'
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_deploy
+    - chmod 600 ~/.ssh/id_deploy
+    - ssh-add ~/.ssh/id_deploy
+    - ssh-keyscan -p 22 "$SERVER_IP_DEV" 2>/dev/null >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+
+  script:
+    - ssh "$SERVER_USER_DEV@$SERVER_IP_DEV" "docker login -u '$CI_REGISTRY_USER' -p '$CI_REGISTRY_PASSWORD' $CI_REGISTRY"
+    - ssh "$SERVER_USER_DEV@$SERVER_IP_DEV" "docker pull '$FRONTEND_IMAGE'"
+    - ssh "$SERVER_USER_DEV@$SERVER_IP_DEV" "docker pull '$BACKEND_IMAGE'"

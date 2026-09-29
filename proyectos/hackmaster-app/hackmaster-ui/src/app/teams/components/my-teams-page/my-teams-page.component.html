@@ -1,0 +1,14 @@
+<div class="page-container">
+  <app-header class="header"></app-header>
+  <main class="main-content">
+    <app-my-team-side-bar class="side-bar" (createTeamClick)="onCreateTeamClick()"></app-my-team-side-bar>
+
+    <section class="teams-page">
+      <h3 class="teams-title">Mis equipos</h3>
+      <app-nav-bar (searchChanged)="onSearchChange($event)" class="nav-bar"></app-nav-bar>
+      <app-team-cards [teams]="myTeams" class="team-container"></app-team-cards>
+    </section>
+  </main>
+
+  <app-footer class="footer"></app-footer>
+</div>

@@ -1,0 +1,47 @@
+<div class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50" (click)="onClose()">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 max-w-md w-full mx-4 transform transition-all duration-300" (click)="$event.stopPropagation()">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Autorizar Transacción</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-6">Introduce tus credenciales para autorizar o rechazar la transacción.</p>
+
+        <div *ngIf="transaction" class="mb-4 p-4 border rounded-md bg-gray-50 dark:bg-gray-700">
+            <p><strong>Identificador:</strong> {{ transaction.token }}</p>
+            <p><strong>Monto:</strong> ${{ transaction.amount }}</p>
+            <p><strong>Destino:</strong> {{ transaction.destinationAccount.rutAccountHolder.firstName }} {{ transaction.destinationAccount.rutAccountHolder.lastName }}</p>
+            <p><strong>RUT Destino:</strong> {{ transaction.destinationAccount.rutAccountHolder.rut }}</p>
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Introduce tu clave privada</label>
+            <input type="password" [(ngModel)]="privateKey" name="publicKey" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-200">
+        </div>
+
+        <div class="flex items-center justify-end space-x-2">
+            <button type="button" (click)="rejectTransaction()" class="px-4 py-2 rounded-md text-white font-semibold hover:bg-purple-700" style="background-color: #ff5733;">
+                Rechazar
+            </button>
+            <button type="button" (click)="approveTransaction()" class="px-4 py-2 rounded-md bg-purple-600 text-white font-semibold hover:bg-purple-700">
+                Autenticar
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Ventana de Feedback -->
+<!-- Ventana de Feedback -->
+<div *ngIf="isFeedbackVisible" class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 max-w-sm w-full text-center animate-fade-in">
+        <div class="flex items-center justify-center mb-4">
+            <div [ngClass]="{'bg-green-100 text-green-600': feedbackMessage.includes('aprobada'), 'bg-red-100 text-red-600': feedbackMessage.includes('rechazada')}"
+                 class="rounded-full p-3">
+                <svg *ngIf="feedbackMessage.includes('aprobada')" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <svg *ngIf="feedbackMessage.includes('rechazada')" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </div>
+        </div>
+        <p class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ feedbackMessage }}</p>
+    </div>
+</div>
+

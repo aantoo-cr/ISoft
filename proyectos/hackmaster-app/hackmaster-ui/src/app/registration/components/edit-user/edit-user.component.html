@@ -1,0 +1,132 @@
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <h2 class="mt-10 text-center text-2xl font-bold tracking-tight text-gray-900">
+      Edita tus datos
+    </h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form (ngSubmit)="updateUser()" class="space-y-6">
+      <div>
+        <label for="username" class="block text-sm font-medium text-gray-900">Nombre de usuario</label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          [(ngModel)]="user.username"
+          required
+          class="block w-full rounded-md py-2 text-gray-900"
+        />
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-900">Correo electrónico</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          [(ngModel)]="user.email"
+          readonly
+          class="block w-full rounded-md py-2 text-gray-900 bg-gray-200"
+        />
+      </div>
+
+      <div>
+        <label for="rut" class="block text-sm font-medium text-gray-900">RUT</label>
+        <input
+          id="rut"
+          name="rut"
+          type="text"
+          [(ngModel)]="user.rut"
+          required
+          class="block w-full rounded-md py-2 text-gray-900"
+        />
+      </div>
+
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-900">Nombre</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          [(ngModel)]="user.name"
+          required
+          class="block w-full rounded-md py-2 text-gray-900"
+        />
+      </div>
+
+      <div>
+        <label for="lastname" class="block text-sm font-medium text-gray-900">Apellido</label>
+        <input
+          id="lastname"
+          name="lastname"
+          type="text"
+          [(ngModel)]="user.lastname"
+          required
+          class="block w-full rounded-md py-2 text-gray-900"
+        />
+      </div>
+
+      <div>
+        <label for="city" class="block text-sm font-medium text-gray-900">Ciudad</label>
+        <input
+          id="city"
+          name="city"
+          type="text"
+          [(ngModel)]="user.city"
+          required
+          class="block w-full rounded-md py-2 text-gray-900"
+        />
+      </div>
+
+      <div>
+        <label for="country" class="block text-sm font-medium text-gray-900">País</label>
+        <input
+          id="country"
+          name="country"
+          type="text"
+          [(ngModel)]="user.country"
+          required
+          class="block w-full rounded-md py-2 text-gray-900"
+        />
+      </div>
+
+      <div>
+        <label for="phoneNumber" class="block text-sm font-medium text-gray-900">Teléfono</label>
+        <input
+          id="phoneNumber"
+          name="phoneNumber"
+          type="text"
+          [(ngModel)]="user.phoneNumber"
+          required
+          class="block w-full rounded-md py-2 text-gray-900"
+        />
+      </div>
+
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-900">Contraseña actual</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          [(ngModel)]="password"
+          required
+          class="block w-full rounded-md py-2 text-gray-900"
+        />
+      </div>
+
+      <div>
+        <button
+          type="submit"
+          class="w-full rounded-md bg-indigo-600 px-4 py-2 text-white"
+        >
+          Guardar cambios
+        </button>
+      </div>
+    </form>
+
+    <p class="mt-4 text-center text-sm text-red-500" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </p>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<app-search-bar (productsFound)="products = $event" (searchError)="showErrorPopup($event)"></app-search-bar>
+<div class="h-6 bg-white w-full"></div>
+
+<!--<app-recent-products></app-recent-products>-->
+<div class="h-6 bg-white w-full"></div>
+
+<app-product-list [products]="products"></app-product-list>
+
+<app-error-popup [showPopup]="showPopup" [errorMessage]="errorMessage" (popupClosed)="resetPopup()"></app-error-popup>
+

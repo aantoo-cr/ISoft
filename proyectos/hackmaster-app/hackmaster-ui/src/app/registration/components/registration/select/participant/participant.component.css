@@ -1,0 +1,7 @@
+.full-screen-bg {
+  background-color: #f4f7ff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

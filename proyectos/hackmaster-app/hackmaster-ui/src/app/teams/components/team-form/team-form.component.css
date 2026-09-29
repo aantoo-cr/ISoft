@@ -1,0 +1,171 @@
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  align-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  border: 2px solid #efefef;
+  padding: 10px 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 200px;
+  margin-bottom: 100px;
+  position: relative;
+}
+
+.inactive {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+
+.form-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 5%;
+}
+
+.separator {
+  height: 2px;
+  background-color: #efefef;
+  width: 100%;
+  margin: -10px 0;
+  margin-bottom: 5px;
+}
+
+.form {
+  width: 100%;
+  position: relative;
+}
+
+.form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 2%;
+}
+
+.form-members-btn {
+  margin-top: 5%;
+}
+
+.form-members-group {
+  margin-bottom: 5%;
+}
+
+.form-label{
+  font-size: 0.9em;
+  text-align: left;
+}
+
+.form-label,
+.form-input{
+  margin-bottom: 3%;
+}
+
+.form-members-label {
+  margin-bottom: 1.5%;
+}
+
+.member-name {
+  font-weight: 450;
+}
+
+.member-email {
+  font-weight: 300;
+}
+
+.no-margin {
+  margin-bottom: 0;
+}
+
+.form-input {
+  padding: 10px 0;
+  padding-left: 5%;
+  width: 100%;
+}
+
+.form-input:hover {
+  outline: 2px solid #4F6CFA;
+}
+
+.form-input:focus {
+  outline: 2px solid #4F6CFA;
+}
+
+.add-members-btn {
+  font-size: 1.2em;
+  width: 40%;
+  padding: 6px 20px;
+  background-color: #4F6CFA;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 30px;
+  align-self: flex-end;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.add-members-btn:hover {
+  background-color: #fff;
+  color: #000;
+  outline: 2px solid #efefef;
+}
+
+.submit-btn {
+  font-size: 1.5em;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #32CD32;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 30px;
+}
+
+.submit-btn:hover {
+  background-color: #fff;
+  color: #000;
+  outline: 2px solid #efefef;
+}
+
+.error {
+  margin-top: 10px;
+  color: #c53323;
+  font-size: 0.9em;
+  margin-bottom: 2%;
+  text-align: right;
+  width: 100%;
+  padding-right: 10%;
+  white-space: nowrap;
+}
+
+.error-input:focus {
+  border: none;
+  outline: 2px solid #c53323;
+}
+
+.error-input:hover {
+  border: none;
+  outline: 2px solid #c53323;
+}
+
+.members-form {
+  position: absolute;
+  left: 37%;
+  top: 25%;
+  z-index: 1000;
+}
+
+.update-photo {
+  position: absolute;
+  left: 30%;
+  top: 45%;
+  z-index: 1000;
+}

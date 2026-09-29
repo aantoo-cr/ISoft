@@ -1,0 +1,19 @@
+<div class="add-members">
+  <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
+    <div class="form-group-member">
+      <label [for]="controlId" class="form-member-label">{{ label }}</label>
+      <input [id]="controlId" type="text" [formControlName]="controlName" class="form-member-input"
+        [placeholder]="placeholder" />
+      @if(form.get(controlName)?.touched && form.get(controlName)?.errors) {
+      @if(form.get(controlName)?.hasError('required')) {
+      <small class="error">{{requiredErrorMessage}}</small>
+      } @if(form.get(controlName)?.hasError(validationType)) {
+      <small class="error">{{validationErrorMessage}}
+      </small>
+      } }
+    </div>
+    <div class="form-group-member">
+      <button type="submit" class="submit-member-btn">{{ buttonText }}</button>
+    </div>
+  </form>
+</div>

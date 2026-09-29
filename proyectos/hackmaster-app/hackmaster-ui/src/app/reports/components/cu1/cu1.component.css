@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.hackathon-metrics {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.hackathon-metrics h4 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+.alert-info {
+  color: #17a2b8;
+}
+
+.alert-danger {
+  color: #dc3545;
+}
+
+
+
+.container {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.alert {
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+h3 {
+  font-size: 1.5em;
+  color: #555;
+  margin-top: 20px;
+}
+
+.hackathon-metrics {
+  padding: 15px;
+  margin-top: 10px;
+  background-color: #ffffff;
+  border-left: 4px solid #007bff;
+  border-radius: 5px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.hackathon-metrics h4 {
+  font-size: 1.3em;
+  color: #007bff;
+  margin-bottom: 8px;
+}
+
+.hackathon-metrics p {
+  margin: 0;
+  font-size: 1em;
+  color: #666;
+}
+
+.button {
+  background-color: #3a6ff7; /* Azul claro */
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+
+  /* Centramos el botón */
+  display: block;
+  margin: 20px auto; /* 20px de margen superior e inferior, centrado horizontal */
+}
+
+
+.button:hover {
+  background-color: #0056b3;
+  color: #e6e6e6;
+}

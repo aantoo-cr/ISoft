@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Métricas del Organizador</h2>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="actorName">
+    <h3>{{ actorName }} ({{ actorType }})</h3>
+
+    <div *ngFor="let hackaton of hackatones" class="hackathon-metrics">
+      <h4>{{ hackaton.hackatonName }}</h4>
+      <p><strong>Ingresos Generados:</strong> {{ hackaton.ingresosGenerados | currency }}</p>
+      <p><strong>Total de Premios:</strong> {{ hackaton.totalPremios | currency }}</p>
+      <p><strong>Total de Inscripciones:</strong> {{ hackaton.totalInscripciones }}</p>
+    </div>
+
+    <td>
+      <button [routerLink]="['/reports/cu2', actorId]" class="button">Ver Hackatones</button>
+    </td>
+
+    <div *ngIf="hackatones.length === 0" class="alert alert-info">
+      No hay métricas de hackatones disponibles para este organizador.
+    </div>
+  </div>
+</div>

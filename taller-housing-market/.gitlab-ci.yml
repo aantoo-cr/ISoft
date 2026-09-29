@@ -1,0 +1,68 @@
+variables:
+  BACKEND_IMAGE: $CI_REGISTRY/$CI_PROJECT_PATH/housing-api:latest
+  FRONTEND_IMAGE: $CI_REGISTRY/$CI_PROJECT_PATH/housing-ui:latest
+  DOCKER_TLS_CERTDIR: "/certs"
+
+stages:
+  - build
+  - storage
+
+
+build-backend:
+  stage: build
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  script:
+    - docker build -t housing-backend ./housing-api
+    - docker save housing-backend -o housing-backend.tar
+  artifacts:
+    paths:
+      - housing-backend.tar
+  only:
+    - develop
+
+build-frontend:
+  stage: build
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  script:
+    - docker build -t housing-frontend ./housing-ui
+    - docker save housing-frontend -o housing-frontend.tar
+  artifacts:
+    paths:
+      - housing-frontend.tar
+  only:
+    - develop
+
+
+push-backend:
+  stage: storage
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  needs:
+    - build-backend
+  script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+    - docker load -i housing-backend.tar
+    - docker tag housing-backend "$BACKEND_IMAGE"
+    - docker push "$BACKEND_IMAGE"
+  only:
+    - develop
+
+push-frontend:
+  stage: storage
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  needs:
+    - build-frontend
+  script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+    - docker load -i housing-frontend.tar
+    - docker tag housing-frontend "$FRONTEND_IMAGE"
+    - docker push "$FRONTEND_IMAGE"
+  only:
+    - develop

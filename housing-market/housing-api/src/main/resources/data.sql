@@ -1,0 +1,3 @@
+insert into house (hou_address,hou_available,hou_description,hou_photo,hou_title) values ('El almendral 432',true,'Hermosa casa ubicada en sector los Coihues','img','Tiny House');
+insert into house (hou_address,hou_available,hou_description,hou_photo,hou_title) values ('Las Rosas 1122',false,'Gran casa en la playa ubicada a orilla del mar','img','Casa de playa');
+insert into house (hou_address,hou_available,hou_description,hou_photo,hou_title) values ('Los poetas 8341',true,'Pequeño lodge cerca de la montaña','img','Casa de montaña');

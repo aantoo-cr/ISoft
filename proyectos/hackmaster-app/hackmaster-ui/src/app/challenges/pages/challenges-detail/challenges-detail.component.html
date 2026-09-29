@@ -1,0 +1,132 @@
+<div class="flex flex-col min-h-screen">
+  <app-header class="bg-primary text-white p-12">
+    <!-- Contenido del header -->
+  </app-header>
+
+  <div id="detalles-desafio" class="flex-grow bg-green-100 p-4 pt-[120px] md:pt-[130px] lg:pt-[30px]">
+    <div class="container">
+
+      <div class="text-right">
+        <!-- componente para inscribir desafio
+        <a
+          href="#nada"
+          class="ud-menu-scroll mx-8 flex py-2 px-4 text-base font-semibold text-white text-right bg-primary rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 bg-blue-700 lg:mr-0 lg:inline-flex lg:px-6 lg:py-3">
+          Inscribirme en este desafio
+        </a>
+        -->
+
+        <!-- Se generan los titulos y descripciones de los desafios -->
+        <div *ngIf="!isLoading">
+          <h1>{{ Challenge?.title }}</h1>
+          <p>{{ Challenge?.description }}</p>
+
+          <!-- Botón de eliminación con margen superior añadido -->
+          <button
+            *ngIf="!isDeleted"
+            (click)="deleteChallenge()"
+
+            class="ud-menu-scroll mx-8 flex py-2 px-4 mt-4 text-base font-semibold text-white text-right bg-primary rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 bg-blue-700 lg:mr-0 lg:inline-flex lg:px-6 lg:py-3">
+            Eliminar Desafío
+          </button>
+
+
+        </div>
+
+        <!--Boton Editar--->
+        <div class="text-right">
+          <button
+            (click)="openModal()"
+            class="ud-menu-scroll mx-8 flex py-2 px-4 mt-4 text-base font-semibold text-white text-right bg-primary rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 bg-blue-700 lg:mr-0 lg:inline-flex lg:px-6 lg:py-3">
+            Editar desafio
+          </button>
+        </div>
+      </div>
+
+      <!-- Título centrado -->
+      <h2 class="mb-6 text-3xl font-bold text-center text-black sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]">
+        {{ Challenge?.nombre }}
+      </h2>
+
+      <div class="-mx-4 flex flex-wrap items-start">
+        <!-- Contenedor para la imagen y los detalles -->
+        <div class="w-full md:w-1/3 lg:w-1/4 p-4">
+          <img class="w-full object-cover rounded-lg" [src]="Challenge.urlImagen ? Challenge.urlImagen : 'assets/images/noimage.png'">
+          <!-- Detalles del desafío -->
+          <div class="mb-4">
+            <p class="text-lg font-medium">Cupos disponibles: {{ Challenge?.cuposParticipantes }}</p>
+            <p class="text-lg font-medium">Fecha inicio: {{ Challenge?.fechaI | date:'dd/MM/yy' }}</p>
+            <p class="text-lg font-medium">Fecha término: {{ Challenge?.fechaT | date:'dd/MM/yy'}}</p>
+          </div>
+        </div>
+
+        <!-- Detalles del desafío a la derecha de la imagen -->
+        <div class="w-full md:w-2/3 lg:w-3/4 p-4">
+          <!-- Descripción del desafío -->
+          <div class="mb-4">
+            <h3 class="text-xl font-semibold">Descripción</h3>
+            <p class="text-black-700">{{ Challenge?.descripcion }}</p>
+          </div>
+
+          <!-- Requisitos del desafío -->
+          <div class="mb-4">
+            <h3 class="text-xl font-semibold">Requisitos para los participantes</h3>
+            <p class="text-black-700">{{ Challenge?.requisitos_Participantes}}</p>
+          </div>
+
+          <!-- Criterios de evaluacion -->
+          <div class="mb-4">
+            <h3 class="text-xl font-semibold">Criterios de evaluación</h3>
+            <ol class="list-decimal list-inside text-black-700">
+              <li *ngFor="let criterio of Challenge?.criteriosEval">{{ criterio }}</li>
+            </ol>
+          </div>
+
+          <!-- Valor inscripcion -->
+          <div class="mb-4">
+            <h3 class="text-xl font-semibold">Valor de inscripción</h3>
+            <p class="text-black-700">{{ Challenge?.challengePrice}}</p>
+          </div>
+
+          <!-- Estado del desafío -->
+          <div class="mb-4">
+            <h3 class="text-xl font-semibold">Estado del desafío</h3>
+            <p class="text-black-700">
+              {{ Challenge?.estado ? 'Habilitado' : 'Desabilitado' }}
+            </p>
+          </div>
+
+          <!-- Botón para cambiar el estado -->
+          <div class="mb-4">
+            <button
+              (click)="toggleEstado()"
+              class="py-2 px-4 text-base font-semibold text-white text-center rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+              [ngClass]="Challenge?.estado ? 'bg-red-600' : 'bg-green-600'">
+              {{ Challenge?.estado ? 'Desabilitar' : 'Habilitar' }}
+            </button>
+          </div>
+        </div>
+        <div class="text-center  flex justify-center space-x-8">
+          <a
+            href="/challenges/{{challengeId}}/prizes"
+            class="ud-menu-scroll mx-8 flex py-2 px-4 text-base font-semibold text-white text-center bg-primary rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 bg-blue-600 lg:mr-0 lg:inline-flex lg:px-6 lg:py-3">
+            Asignar Premios
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mensaje de carga -->
+  <div *ngIf="isLoading" class="text-center py-4">
+    <p>Cargando detalles del desafío...</p>
+  </div>
+  <!-- Modal de edición -->
+  <app-challenges-form-edit
+
+    [challenge]="Challenge"
+    (close)="isModalOpen = false"
+    *ngIf="isModalOpen" (close)="closeModal()"
+  ></app-challenges-form-edit>
+
+  <app-footer></app-footer>
+</div>

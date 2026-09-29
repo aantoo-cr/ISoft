@@ -1,0 +1,6 @@
+<div class="w-[500px] h-[400px] p-5 border border-gray-300 bg-white rounded-lg font-sans flex flex-col items-center gap-2 overflow-y-auto ml-[-825px] mt-24">
+  <h2 class="text-lg mb-2 text-[#007bff]">Participantes del Equipo</h2>
+  <div class="w-full p-2 border border-[#007bff] bg-white rounded-md flex justify-center items-center font-bold text-base text-[#007bff]" *ngFor="let participant of participants">
+    <span class="participant-name">{{ participant.name }}</span>
+  </div>
+</div>

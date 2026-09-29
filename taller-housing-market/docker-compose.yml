@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  housing-backend:
+    container_name: housing-api
+    build:
+      context: ./housing-api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
+  housing-frontend:
+    container_name: housing-ui
+    build:
+      context: ./housing-ui
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - housing-backend

@@ -1,0 +1,56 @@
+<p>Intranet</p>
+
+<div>
+
+    <!-- Botón de logout en la esquina superior derecha -->
+    <div>
+    <a href="/logout" class="absolute top-3 right-3 p-2 bg-red-500 text-white rounded-full hover:bg-red-600 flex items-center space-x-2">
+        <!-- SVG de persona con flecha -->
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <!-- Icono de persona -->
+            <path d="M12 12c2.7 0 4.5-1.8 4.5-4.5S14.7 3 12 3 7.5 4.8 7.5 7.5 9.3 12 12 12zm0 2c-3.9 0-7.5 2.6-7.5 6v1h15v-1c0-3.4-3.6-6-7.5-6z"></path>
+        </svg>
+        <!-- Texto "Salir" -->
+        <span>Cerrar sesion</span>
+    </a>
+    </div>
+
+<h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+    Dashboard admin
+</h2>
+
+<div class="bg-purple-200 text-md-center">
+    <app-profile></app-profile>
+</div>
+
+
+
+    <!-- Contenedor para ícono y datos -->
+    <div class="flex items-center" *ngFor="let user of data">
+        <!-- Aquí cambiamos el SVG por uno que representa contactos -->
+        <div class="p-3 mr-4 text-orange-500 bg-orange-200 rounded-full dark:text-blue-100 dark:bg-blue-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                    d="M12 12c2.7 0 4.5-1.8 4.5-4.5S14.7 3 12 3 7.5 4.8 7.5 7.5 9.3 12 12 12zm0 2c-3.9 0-7.5 2.6-7.5 6v1h15v-1c0-3.4-3.6-6-7.5-6z">
+                </path>
+            </svg>
+        </div>
+
+        <!-- Datos del usuario -->
+        <div class="text-md-center text-gray-800">
+            <ul>
+                <li>
+                    <strong>Nombre:</strong> {{ user.firstName }} {{ user.lastName }}<br />
+                    <strong>Email:</strong> {{ user.email }}<br />
+                    <strong>RUT:</strong> {{ user.rut }}-{{ user.verificationDigit }}<br />
+                    <strong>Teléfono:</strong> {{ user.phoneNumber }}<br />
+                    <strong>Documento:</strong> {{ user.documentNumber }}<br />
+                    <br>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+</div>

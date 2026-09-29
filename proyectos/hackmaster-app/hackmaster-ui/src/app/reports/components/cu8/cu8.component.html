@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Detalles del Participante</h2>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="participantDetail">
+    <h3>{{ participantDetail.actorName }}</h3>
+    <p><strong>Total de Hackatones Participados:</strong> {{ participantDetail.totalHackatonesParticipados }}</p>
+    <p><strong>Número de Victorias:</strong> {{ participantDetail.numberOfVictories }}</p>
+
+    <div>
+      <strong>Colaboradores:</strong>
+      <ul>
+        <li *ngFor="let collaborator of participantDetail.collaborators">
+          {{ collaborator.collaboratorName }} - Colaboraciones: {{ collaborator.collaborationsCount }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Botón para ir a la tabla de Hackatones -->
+  <div class="text-center">
+    <button [routerLink]="['/reports/cu6', actorId]" class="button">Tabla de Hackatones</button>
+  </div>
+</div>

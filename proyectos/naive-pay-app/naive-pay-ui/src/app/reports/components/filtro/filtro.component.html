@@ -1,0 +1,36 @@
+
+<div class="filters">
+    <div class="filter-option">
+        <div class="filter-group">
+            <button (click)="toggleDateInputs()" class="button-group">Buscar por fechas</button>
+            <div *ngIf="showDateFilter" class="filter-inputs">
+                <label class="filterDate" for="fechaInicio">Desde:</label>
+                <input type="date" id="fechaInicio" [(ngModel)]="fechaInicio">
+                <label class="filterDate" for="fechaFin">Hasta:</label>
+                <input type="date" id="fechaFin" [(ngModel)]="fechaFin">
+            </div>
+        </div>
+        <div class="filter-group">
+            <button (click)="toggleAmountInputs() " class="button-group">Buscar por montos</button>
+            <div *ngIf="showAmountFilter" class="filter-inputs">
+                <label class="filterMount" for="amountMin">Monto Mínimo:</label>
+                <input id="amountMin" [(ngModel)]="amountMin" type="number" />
+                <label class="filterMount" for="amountMax">Monto Máximo:</label>
+                <input id="amountMax" [(ngModel)]="amountMax" type="number" />
+            </div>
+        </div>
+        <div class="filter-group">
+            <label for="estadoFiltro">Estado:</label>
+            <select id="estadoFiltro" [(ngModel)]="estadoFiltro">
+                <option value="all">Todos</option>
+                <option value="PENDING">Pendiente</option>
+                <option value="APPROVED">Aprobado</option>
+                <option value="REJECTED">Rechazado</option>
+            </select>
+        </div>
+    </div>
+    <div class="button-send">
+        <button (click)="clearFilters()" class="button-group">Limpiar</button>
+        <button (click)="aplicarFiltro()" class="button-group">Aplicar Filtro</button>
+    </div>
+</div>

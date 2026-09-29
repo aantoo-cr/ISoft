@@ -1,0 +1,28 @@
+/.idea/
+/ui/.vscode/
+/ui/node_modules/
+
+/api/.idea/
+/api/.mvn/
+/api/.mvn/wrapper
+/api/target/
+
+
+# Compiled output
+/ui/dist
+/ui/tmp
+/ui/out-tsc
+/ui/bazel-out
+
+/ui/npm-debug.log
+/ui/yarn-error.log
+
+
+# Miscellaneous
+/ui/.angular/cache
+/ui.sass-cache/
+/ui/connect.lock
+/ui/coverage
+/ui/libpeerconnection.log
+/ui/testem.log
+/ui/typings

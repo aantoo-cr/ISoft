@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Dispositivos</title>
+    <link rel="stylesheet" href="gestion-dispositivos.component.css">
+</head>
+<body class="h-full bg-white">
+<div class="flex h-full">
+    <!-- Sidebar -->
+    <app-sidebar class="w-64 bg-gray-800 text-white h-full"></app-sidebar>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+        <!-- Header -->
+        <app-header class="bg-white shadow-md shadow-none lg:shadow-right lg:shadow-bottom lg:shadow-top w-full"></app-header>
+
+        <!-- Content -->
+        <div class="flex-1 flex flex-col items-center justify-center px-6 py-12 lg:px-8">
+            <div class="sm:mx-auto sm:w-full sm:max-w-md text-center">
+                <h2 class="text-2xl font-bold tracking-tight text-gray-900">Naive Pay</h2>
+                <h1 class="mt-4 text-3xl font-semibold text-gray-800">Gestión de Dispositivos</h1>
+                <p class="mt-2 text-sm text-gray-600">Seleccione una opción:</p>
+            </div>
+
+            <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-6">
+                <!-- Botones con el estilo personalizado -->
+                <div class="flex flex-col space-y-4">
+                    <button (click)="goToIngresarDispositivo()" class="bg-purple-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 disabled:bg-gray-400">
+                        Añadir Dispositivo
+                    </button>
+                    <button (click)="goToDesvincularDispositivo()" class="bg-purple-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 disabled:bg-gray-400">
+                        Desvincular Dispositivo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,169 @@
+<div class="container mx-auto p-6">
+    <div class="bg-white shadow-lg rounded-lg p-8 max-w-3xl mx-auto">
+        <h1 class="text-3xl font-semibold text-center text-gray-800 mb-4">Naive-Pay</h1>
+        <h2 class="text-xl text-center text-gray-600 mb-6">CREAR UNA CUENTA</h2>
+
+        <!-- Barra de progreso -->
+        <div class="w-full bg-gray-300 h-2 mb-6">
+            <div class="bg-purple-600 h-full w-1/2" style="width: 0;"></div>
+        </div>
+
+        <!-- Mensaje de advertencia -->
+        <div *ngIf="warningMessage" class="alert alert-warning mb-4 text-yellow-600 bg-yellow-100 p-4 rounded-lg">
+            {{ warningMessage }}
+        </div>
+
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            <!-- Nombre -->
+            <div class="mb-6">
+                <label for="firstName" class="block text-lg font-semibold text-gray-800 mb-2">Nombre</label>
+                <input id="firstName" formControlName="firstName" type="text" placeholder="Nombre"
+                       class="border-2 border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <div *ngIf="registrationForm.get('firstName')?.touched" class="mt-2 text-xl text-red-500">
+                    <small *ngIf="registrationForm.get('firstName')?.hasError('required')">Nombre es
+                        obligatorio. </small>
+                    <small *ngIf="registrationForm.get('firstName')?.hasError('minlength')">El nombre debe tener al
+                        menos 2 caracteres. </small>
+                    <small *ngIf="registrationForm.get('firstName')?.hasError('pattern')">El nombre solo debe contener letras. </small>
+                </div>
+            </div>
+
+            <!-- Apellido -->
+            <div class="mb-6">
+                <label for="lastName" class="block text-lg font-semibold text-gray-800 mb-2">Apellido</label>
+                <input id="lastName" formControlName="lastName" type="text" placeholder="Apellido paterno y materno"
+                       class="border-2 border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <div *ngIf="registrationForm.get('lastName')?.touched" class="mt-2 text-xl text-red-500">
+                    <small *ngIf="registrationForm.get('lastName')?.hasError('required')">Apellido es
+                        obligatorio. </small>
+                    <small *ngIf="registrationForm.get('lastName')?.hasError('minlength')">El apellido debe tener al
+                        menos 2 caracteres. </small>
+                    <small *ngIf="registrationForm.get('lastName')?.hasError('pattern')">El apellido solo debe contener letras. </small>
+                </div>
+            </div>
+
+            <!-- Correo electrónico -->
+            <div class="mb-6">
+                <label for="email" class="block text-lg font-semibold text-gray-800 mb-2">Correo electrónico</label>
+                <input id="email" formControlName="email" type="email" placeholder="Dirección de correo electrónico"
+                       class="border-2 border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <div *ngIf="registrationForm.get('email')?.touched" class="mt-2 text-xl text-red-500">
+                    <small *ngIf="registrationForm.get('email')?.hasError('required')">Correo electrónico es obligatorio. </small>
+                    <small *ngIf="registrationForm.get('email')?.hasError('email')">Debe ser un correo electrónico válido. </small>
+                    <small *ngIf="registrationForm.get('email')?.hasError('missingAt')">El correo electrónico debe tener al menos una arroba. </small>
+                    <small *ngIf="registrationForm.get('email')?.hasError('multipleAt')">El correo electrónico solo debe tener una arroba. </small>
+                    <small *ngIf="registrationForm.get('email')?.hasError('missingDot')">El correo electrónico debe tener al menos un punto después de la arroba. </small>
+                </div>
+            </div>
+
+
+            <!-- Teléfono -->
+            <div class="mb-6">
+                <label for="phone" class="block text-lg font-semibold text-gray-800 mb-2">Número de teléfono</label>
+                <input id="phone" formControlName="phoneNumber" type="tel" placeholder="Ej: 56912345678"
+                       maxlength="11"
+                class="border-2 border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <div *ngIf="registrationForm.get('phoneNumber')?.touched" class="mt-2 text-xl text-red-500">
+                    <small *ngIf="registrationForm.get('phoneNumber')?.hasError('required')">Número de teléfono es obligatorio.</small>
+                    <small *ngIf="registrationForm.get('phoneNumber')?.hasError('pattern')">El número de teléfono debe empezar con 569 seguido de 8 dígitos.</small>
+                </div>
+            </div>
+
+
+            <!-- Fecha de nacimiento -->
+            <div class="mb-6">
+                <label for="dateOfBirth" class="block text-lg font-semibold text-gray-800 mb-2">Fecha de nacimiento</label>
+                <input id="dateOfBirth" formControlName="dateOfBirth" type="date"
+                       class="border-2 border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <div *ngIf="registrationForm.get('dateOfBirth')?.touched" class="mt-2 text-xl text-red-500">
+                    <small *ngIf="registrationForm.get('dateOfBirth')?.hasError('required')">La fecha de nacimiento es obligatoria. </small>
+                    <small *ngIf="registrationForm.get('dateOfBirth')?.hasError('underage')">Debe ser mayor de 18 años. </small>
+                    <small *ngIf="registrationForm.get('dateOfBirth')?.hasError('overage')">Debe ser menor de 100 años. </small>
+                </div>
+            </div>
+
+            <!-- Barra de progreso -->
+            <div class="w-full bg-gray-400 h-1 mb-6">
+                <div class="bg-purple-600 h-full w-1/2" style="width: 100%;"></div>
+            </div>
+
+            <!-- Documentos Personales -->
+            <div class="mb-6">
+                <p class="text-lg text-center font-semibold text-gray-800 mb-4">DOCUMENTO DE IDENTIDAD</p>
+                <!-- RUT -->
+                <div class="mb-4">
+                    <label for="rut" class="block text-lg font-semibold text-gray-800 mb-2">RUT</label>
+                    <input id="rut" formControlName="rut" type="text" placeholder="RUT sin puntos y con guión"
+                           class="border-2 border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" appRutFormat>
+                    <div *ngIf="registrationForm.get('rut')?.touched" class="mt-2 text-xl text-red-500">
+                        <small *ngIf="registrationForm.get('rut')?.hasError('required')">RUT es obligatorio. </small>
+                        <small *ngIf="registrationForm.get('rut')?.hasError('pattern')">RUT inválido. El RUT debe ir sin puntos y con guión. </small>
+                        <small *ngIf="registrationForm.get('rut')?.hasError('rutExists')">El RUT ya está registrado. </small>
+                    </div>
+                </div>
+
+                <!-- Número de Documento -->
+                <div class="mb-4">
+                    <label for="documentNumber" class="block text-lg font-semibold text-gray-800 mb-2">Número de documento</label>
+                    <input id="documentNumber" formControlName="documentNumber" type="text" placeholder="100.000.001"
+                           class="border-2 border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                           appNumberFormat>
+                    <div *ngIf="registrationForm.get('documentNumber')?.touched" class="mt-2 text-xl text-red-500">
+                        <small *ngIf="registrationForm.get('documentNumber')?.hasError('required')">Número de documento es obligatorio. </small>
+                        <small *ngIf="registrationForm.get('documentNumber')?.hasError('pattern')">Número de documento inválido. </small>
+                    </div>
+                </div>
+
+
+                <div class="w-full bg-gray-400 h-1 mb-6">
+                <div class="bg-purple-600 h-full w-1/2" style="width: 100%;"></div>
+            </div>
+
+            <!-- Ocupación -->
+            <div class="mb-6">
+                <label for="occupation" class="block text-lg font-semibold text-gray-800 mb-2">Ocupación</label>
+                <input id="occupation" formControlName="occupation" type="text"
+                       placeholder="Ocupación o profesión actual"
+                       class="border-2 border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <div *ngIf="registrationForm.get('occupation')?.touched" class="mt-2 text-xl text-red-500">
+                    <small *ngIf="registrationForm.get('occupation')?.hasError('required')">Ocupación es
+                        obligatoria. </small>
+
+                </div>
+            </div>
+
+
+            <!-- Dirección -->
+            <div class="mb-6">
+                <label for="address" class="block text-lg font-semibold text-gray-800 mb-2">Dirección</label>
+                <input id="address" formControlName="address" type="text"
+                       placeholder="Lugar de residencia, calle, número, etc."
+                       class="border-2 border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <div *ngIf="registrationForm.get('address')?.touched" class="mt-2 text-xl text-red-500">
+                    <small *ngIf="registrationForm.get('address')?.hasError('required')">Dirección es
+                        obligatoria. </small>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label for="termsAccepted">
+                    <input id="termsAccepted" formControlName="termsAccepted" type="checkbox">
+                    Acepto conforme los Términos y Condiciones del servicio
+                </label>
+                <div
+                    *ngIf="registrationForm.get('termsAccepted')?.touched && registrationForm.get('termsAccepted')?.invalid">
+                    <small *ngIf="registrationForm.get('termsAccepted')?.hasError('requiredTrue')">Debes aceptar los
+                        términos y condiciones.</small>
+                </div>
+            </div>
+
+            <div class="flex justify-center mt-6">
+                <button type="submit" [disabled]="!registrationForm.valid"
+                        class="bg-purple-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 disabled:bg-gray-400">
+                    Crear Cuenta
+                </button>
+            </div>
+            </div>
+        </form>
+    </div>
+</div>

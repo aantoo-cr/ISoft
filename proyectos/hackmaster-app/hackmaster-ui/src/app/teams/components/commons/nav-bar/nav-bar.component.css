@@ -1,0 +1,39 @@
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 40%;
+  height: 6vh;
+  position: relative;
+  border: 2px solid #efefef;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 5vh;
+}
+
+.search-input {
+  width: 90%;
+  padding-left: 5%;
+  font-size: 1.2rem;
+  background: transparent;
+  outline: none;
+  border: none;
+  border-radius: 5vh;
+  caret-color: #6a6a6a;
+}
+
+.magnifying-glass-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8%;
+  height: 90%;
+  padding: 5px;
+  position: absolute;
+  right: 1.5vw;
+}
+
+.magnifying-glass {
+  font-size: 1.5rem;
+  color: #4B4B4B;
+}

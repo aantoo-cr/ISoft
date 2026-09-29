@@ -1,0 +1,70 @@
+<h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+    Transacciones
+</h2>
+
+@if (pendingTransactions.length === 0) {
+    <div class="flex items-center justify-center">
+        <p class="text-gray-500">No hay transacciones pendientes</p>
+    </div>
+} @else {
+    <div class="w-full overflow-x-auto">
+        <!-- Tabla con transacciones -->
+        <table class="w-full whitespace-no-wrap">
+
+            <!-- Titulos de la tabla (table heads) -->
+            <thead>
+            <tr
+                class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                <th class="px-4 py-3 text-center">Identificador</th>
+                <th class="px-4 py-3 text-center">Descripcion/Fecha</th>
+                <th class="px-4 py-3 text-center">Estado</th>
+                <th class="px-4 py-3 text-center">Monto</th>
+                <th class="px-4 py-3 text-center">Nombre/Rut destinatario</th>
+                <th class="px-4 py-3 text-center">Cuenta destinatario</th>
+                <th class="px-4 py-3 text-center">Acciones</th>
+            </tr>
+            </thead>
+            <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+
+            <!-- A partir de aqui se empiuezan a generar las filas de transacciones -->
+                @for (Transaction of pendingTransactions; track Transaction.token) {
+                    <tr class="text-gray-700 dark:text-gray-400">
+                        <td class="px-4 py-3 text-center">
+                            <p class="text-sm/6 font-semibold text-gray-900">{{ Transaction?.token }}</p>
+                        </td>
+                        <td class="px-4 py-3 text-center">
+                            <p class="text-sm/6 font-semibold text-gray-900">{{ Transaction?.description }}</p>
+                            <p class="text-xs/5 text-gray-500">{{ Transaction?.date?.[0] }}-{{ Transaction?.date?.[1] }}-{{ Transaction?.date?.[2] }}</p>
+                            <p class="text-xs/5 text-gray-500">{{ (Transaction?.time?.[0] | number:'2.0') }}:{{ (Transaction?.time?.[1] | number:'2.0') }}:{{ (Transaction?.time?.[2] | number:'2.0') }}</p>
+                        </td>
+                        <td class="px-4 py-3 text-sm text-center">
+                            <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">
+                                Pending
+                            </span>
+                        </td>
+                        <td class="px-4 py-3 text-sm text-center">
+                            <p class="text-sm/6 font-semibold text-gray-900">$ {{ Transaction?.amount }}</p>
+                        </td>
+                        <td class="px-4 py-3 text-sm text-center">
+                            <p class="text-sm/6 font-semibold text-gray-900">{{ Transaction?.destinationAccount?.rutAccountHolder?.firstName}} {{ Transaction?.destinationAccount?.rutAccountHolder?.lastName }}</p>
+                            <p class="text-xs/5 text-gray-500">{{ Transaction?.destinationAccount?.rutAccountHolder?.rut }}</p>
+                        </td>
+                        <td class="px-4 py-3 text-sm text-center">
+                            <p class="text-sm/6 font-semibold text-gray-900"> {{ Transaction?.destinationAccount?.accountNumber}}</p>
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="flex flex-col items-center">
+                                <button class="rounded-full py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:shadow-none active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                        style="background-color: #7e22ce;" type="button"
+                                        (click)="openAuthModal(Transaction)">
+                                    Autenticar
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                } <!-- Aqui terminan las filas de transacciones -->
+            </tbody>
+        </table>
+    </div>
+    <app-auth-modal *ngIf="isAuthModalOpen" [transaction]="Transaction" (closeModal)="closeAuthModal()"></app-auth-modal>
+}

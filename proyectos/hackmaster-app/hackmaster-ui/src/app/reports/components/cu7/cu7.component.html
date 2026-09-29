@@ -1,0 +1,37 @@
+<div class="container">
+  <h2>Detalles del Hackathon</h2>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="hackathonDetail">
+    <h3>{{ hackathonDetail.hackathonName }}</h3>
+    <p><strong>Nombre del Participante:</strong> {{ hackathonDetail.actorName }}</p>
+    <p><strong>Equipo:</strong> {{ hackathonDetail.teamName }}</p>
+    <p><strong>Nota Promedio del Hackathon:</strong> {{ hackathonDetail.averageHackathonGrade }}</p>
+    <p><strong>Nota del Grupo:</strong> {{ hackathonDetail.notaGrupo }}</p>
+
+    <div>
+      <strong>Integrantes del Grupo:</strong>
+      <ul>
+        <li *ngFor="let integrante of hackathonDetail.integrantesGrupo">
+          {{ integrante }}
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <strong>Ranking:</strong>
+      <ul>
+        <li *ngFor="let rank of hackathonDetail.ranking">
+          {{ rank }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Botón de volver -->
+    <div class="back-button-container">
+      <button (click)="goBack()" class="button">Volver</button>    </div>
+  </div>
+</div>

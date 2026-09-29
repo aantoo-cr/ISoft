@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Hackatones Evaluados por {{ actorName }} ({{ actorType }})</h2>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <table *ngIf="hackatones.length > 0" class="table table-striped">
+    <thead>
+    <tr>
+      <th>Nombre del Hackathon</th>
+      <th>Fecha de Inicio</th>
+      <th>Fecha de TÃ©rmino</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let hackaton of hackatones">
+      <td>{{ hackaton.hackatonName }}</td>
+      <td>{{ hackaton.fechaInicio | date }}</td>
+      <td>{{ hackaton.fechaTermino | date }}</td>
+      <td>
+        <button [routerLink]="['/reports/cu5', actorId, hackaton.hackatonId]" class="button">Ver detalles</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="hackatones.length === 0" class="alert alert-info">
+    No se encontraron hackatones evaluados por este juez.
+  </div>
+</div>

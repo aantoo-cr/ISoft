@@ -1,0 +1,110 @@
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <h2 class="mt-10 text-center text-2xl font-bold tracking-tight text-gray-900">
+      Edita tus datos
+    </h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form (ngSubmit)="updateOrganization()" class="space-y-6">
+      <div>
+        <label for="username" class="block text-sm font-medium text-gray-900">Username</label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          [(ngModel)]="user.username"
+          required
+          class="block w-full rounded-md py-2 text-gray-900"
+        />
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-900">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          [(ngModel)]="user.email"
+          readonly
+          class="block w-full rounded-md py-2 text-gray-900 bg-gray-200"
+        />
+      </div>
+
+      <div>
+        <label for="rutOrganization" class="block text-sm font-medium text-gray-900">RUT Organization </label>
+        <input
+          id="rutOrganization"
+          name="rutOrganization"
+          type="text"
+          [(ngModel)]="user.rutOrganization"
+          required
+          class="block w-full rounded-md py-2 text-gray-900"
+        />
+      </div>
+
+      <div>
+        <label for="rutRepresentative" class="block text-sm font-medium text-gray-900">RUT Representative </label>
+        <input
+          id="rutRepresentative"
+          name="rutRepresentative"
+          type="text"
+          [(ngModel)]="user.rutRepresentative"
+          required
+          class="block w-full rounded-md py-2 text-gray-900"
+        />
+      </div>
+
+      <div>
+        <label for="socialNameOrganization" class="block text-sm font-medium text-gray-900"> socialNameOrganization </label>
+        <input
+          id="socialNameOrganization"
+          name="socialNameOrganization"
+          type="text"
+          [(ngModel)]="user.socialNameOrganization"
+          required
+          class="block w-full rounded-md py-2 text-gray-900"
+        />
+      </div>
+
+      <div>
+        <label for="representativeName" class="block text-sm font-medium text-gray-900"> representativeName </label>
+        <input
+          id="representativeName"
+          name="representativeName"
+          type="text"
+          [(ngModel)]="user.representativeName"
+          required
+          class="block w-full rounded-md py-2 text-gray-900"
+        />
+      </div>
+
+
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-900">Contraseña actual</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          [(ngModel)]="password"
+          required
+          class="block w-full rounded-md py-2 text-gray-900"
+        />
+      </div>
+
+      <div>
+        <button
+          type="submit"
+          class="w-full rounded-md bg-indigo-600 px-4 py-2 text-white"
+        >
+          Guardar cambios
+        </button>
+      </div>
+    </form>
+
+    <p class="mt-4 text-center text-sm text-red-500" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </p>
+  </div>
+
+</div>

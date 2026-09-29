@@ -1,0 +1,52 @@
+<app-header class="header"></app-header>
+<div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg" style="margin-top: 100px; margin-bottom: 500px;">
+
+  <h1 class="text-2xl font-bold mb-4 text-gray-800">Detalles del Equipo</h1>
+
+  <!-- Indicador de carga -->
+  <div *ngIf="loading" class="text-center text-gray-500">
+    <p>Cargando datos del equipo...</p>
+  </div>
+
+  <!-- Mensaje de error -->
+  <div *ngIf="error" class="text-red-600 font-semibold">
+    <p>{{ error }}</p>
+  </div>
+
+  <!-- Contenedor de información del equipo -->
+  <div *ngIf="!loading && !error && teamInfo" class="bg-gray-100 p-4 rounded-lg shadow-md mb-6">
+    <h2 class="text-xl font-semibold mb-2 text-gray-700">Información del Equipo</h2>
+    <p class="mb-4"><strong class="text-gray-600">Nombre del Equipo:</strong> {{ teamInfo.name }}</p>
+    <p class="mb-2 text-gray-600 font-medium">Miembros del Equipo:</p>
+    <ul class="list-disc pl-6">
+      <li *ngFor="let member of teamInfo?.memberNames" class="text-gray-700">
+        {{ member?.name }} (<span class="text-gray-500">{{ member?.email }}</span>)
+      </li>
+    </ul>
+  </div>
+
+  <!-- Contenedor de información del proyecto -->
+  <div
+    *ngIf="!loading && !error && projectInfo"
+    (click)="navigateToProjectDetails(projectInfo.id)"
+    class="bg-blue-100 p-4 rounded-lg shadow-md hover:bg-blue-200 transition cursor-pointer"
+  >
+    <h2 class="text-xl font-semibold mb-2 text-blue-700">Proyecto Asociado</h2>
+    <p class="mb-2"><strong class="text-blue-600">Nombre del Proyecto:</strong> {{ projectInfo.name }}</p>
+    <p class="mb-2"><strong class="text-blue-600">Imagen del Proyecto:</strong></p>
+    <img
+      [src]="projectInfo.photoUrl"
+      alt="Imagen del proyecto"
+      class="w-full max-w-xs rounded-md shadow-md mb-4"
+    />
+  </div>
+
+  <!-- Mensaje si no hay proyecto -->
+  <div *ngIf="!loading && !error && projectInfo === null" class="mt-6 text-gray-500">
+    <p>Este equipo no tiene un proyecto asociado.</p>
+  </div>
+</div>
+
+<app-footer class="footer bg-gray-100 text-center py-4">
+  <p class="text-sm text-gray-600">© 2024 Tu Proyecto. Todos los derechos reservados.</p>
+</app-footer>

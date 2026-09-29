@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  mercado-free-backend:
+    container_name: housing-api
+    build:
+      context: ./housing-api
+      dockerfile: Dockerfile
+    image: housing-api
+    ports:
+      - "8080:8080"
+
+  mercado-free-frontend:
+    container_name: housing-ui
+    build:
+      context: ./housing-ui
+      dockerfile: Dockerfile
+    image: housing-ui
+    ports:
+      - "80:80"

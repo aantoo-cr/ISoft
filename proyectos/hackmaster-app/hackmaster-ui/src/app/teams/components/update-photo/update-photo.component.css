@@ -1,0 +1,88 @@
+.photo-upload-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.photo-upload-section {
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+  width: 600px;
+  border-radius: 12px;
+  position: relative;
+  border: 2px solid #efefef;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.photo-upload-content {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 8%;
+}
+
+.photo-upload-title {
+  align-self: flex-start;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+
+.photo-upload-description {
+  align-self: flex-start;
+  font-size: 0.9em;
+  font-weight: 400;
+  line-height: 1.3;
+  width: 95%;
+}
+
+.upload-photo-btn {
+  background-color: #4F6CFA;
+  align-self: flex-start;
+  color: #ffffff;
+  padding: 6px 38px;
+  margin-top: 7%;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  width: auto;
+  height: auto;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.upload-photo-btn:hover {
+  background-color: #fff;
+  color: #000;
+  outline: 2px solid #efefef;
+}
+
+.uploaded-photo-preview {
+  width: 30%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10%;
+  position: relative;
+  overflow: hidden;
+}
+
+.uploaded-photo-preview img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.x-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}

@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<div class="max-w-3xl mx-auto mt-36 p-6 bg-white rounded-lg shadow-lg relative z-10">
+  <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Crear Nuevo Tópico</h2>
+  
+  <form (ngSubmit)="publishTopic()" #topicForm="ngForm" class="space-y-6">
+    <!-- Campo de título -->
+    <div>
+      <label for="title" class="block text-sm font-medium text-gray-700">Título:</label>
+      <input 
+        type="text" 
+        id="title" 
+        name="title" 
+        [(ngModel)]="newTopic.title" 
+        required 
+        class="mt-1 block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+        placeholder="Escribe el título del tema aquí">
+    </div>
+
+    <!-- Campo de descripción -->
+    <div>
+      <label for="description" class="block text-sm font-medium text-gray-700">Descripción:</label>
+      <textarea 
+        id="description" 
+        name="description" 
+        [(ngModel)]="newTopic.description" 
+        required 
+        class="mt-1 block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 resize-none"
+        rows="5"
+        placeholder="Escribe la descripción del tema aquí"></textarea>
+    </div>
+
+    <!-- Botón de envío -->
+    <div class="text-center">
+      <button 
+        type="submit" 
+        [disabled]="!topicForm.form.valid" 
+        class="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+        Crear Tópico
+      </button>
+    </div>
+  </form>
+</div>
+
+<app-footer></app-footer>

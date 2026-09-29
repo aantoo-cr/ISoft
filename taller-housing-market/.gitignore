@@ -1,0 +1,28 @@
+/.idea/
+/housing-ui/.vscode/
+/housing-ui/node_modules/
+
+/housing-api/.idea/
+/housing-api/.mvn/
+/housing-api/.mvn/wrapper
+/housing-api/target/
+
+
+# Compiled output
+/housing-ui/dist
+/housing-ui/tmp
+/housing-ui/out-tsc
+/housing-ui/bazel-out
+
+/housing-ui/npm-debug.log
+/housing-ui/yarn-error.log
+
+
+# Miscellaneous
+/housing-ui/.angular/cache
+/housing-ui.sass-cache/
+/housing-ui/connect.lock
+/housing-ui/coverage
+/housing-ui/libpeerconnection.log
+/housing-ui/testem.log
+/housing-ui/typings

@@ -1,0 +1,39 @@
+.team-card {
+  background-color: #fff;
+  border: 2px solid #efefef;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.team-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 90%;
+  padding-bottom: 20px;
+}
+
+.team-image {
+  width: 100%;
+  height: 85%;
+  object-fit: cover;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 5%;
+}
+
+.team-name {
+  height: 5%;
+  color: #333333;
+  font-size: 1.1rem;
+  position: relative;
+  top: 2.5%;
+}

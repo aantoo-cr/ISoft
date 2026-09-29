@@ -1,0 +1,19 @@
+# docker-compose.yml (en /uf-dolar-project)
+version: "3.9"
+
+services:
+  uf-backend:
+    container_name: uf-api
+    build:
+      context: ./api-uf-dolar-project
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
+  uf-frontend:
+    container_name: uf-ui
+    build:
+      context: ./ui-uf-dolar-project
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"

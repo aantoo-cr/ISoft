@@ -1,0 +1,178 @@
+<!-- Modal Background Overlay -->
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <!-- Modal Content -->
+  <div class="bg-white rounded-lg p-6 w-full max-w-md max-h-[90vh] overflow-y-auto">
+    <h2 class="text-2xl font-bold mb-4 text-center">Ingresa los nuevos datos del desafio</h2>
+    <form (ngSubmit)="onSubmit()">
+      <!-- Campos del formulario -->
+      <!-- Nombre -->
+      <div class="mb-4">
+        <label for="nombre" class="block font-medium mb-1">Nombre</label>
+        <input
+          type="text"
+          id="nombre"
+          [(ngModel)]="challenge.nombre"
+          name="nombre"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          required
+          placeholder="Ingrese un nombre para el desafio"
+
+        />
+      </div>
+
+      <!-- Descripción -->
+      <div class="mb-4">
+        <label for="descripcion" class="block text-gray-700 text-sm font-bold mb-2">Descripción</label>
+        <textarea
+          id="descripcion"
+          name="descripcion"
+          required
+          [(ngModel)]="challenge.descripcion"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          placeholder="Ingrese una descripción detallada del desafío"
+          rows="4"
+        ></textarea>
+      </div>
+
+      <!-- Requisitos -->
+      <div class="mb-4">
+        <label for="requisitos" class="block text-gray-700 text-sm font-bold mb-2">Requisitos participantes</label>
+        <textarea
+          id="requisitos"
+          name="requisitos"
+          required
+          [(ngModel)]="challenge.requisitos_Participantes"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          placeholder="Ingrese los requisitos que deben cumplir los participantes"
+          rows="4"
+        ></textarea>
+      </div>
+
+      <!-- Criterios de Evaluación -->
+      <div class="mb-4">
+        <label for="criteriosEval" class="block text-gray-700 text-sm font-bold mb-2">Criterios de Evaluación</label>
+        <div class="flex space-x-2 mb-2">
+          <input
+            type="text"
+            id="criteriosEval"
+            [(ngModel)]="nuevoCriterio"
+            placeholder="Añadir criterio de evaluación"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            name="nuevoCriterio"
+          />
+          <button
+            type="button"
+            (click)="agregarCriterio()"
+            class="bg-blue-600 text-white px-4 rounded shadow"
+            [disabled]="!nuevoCriterio.trim() || challenge.criteriosEval.length >= 5"
+          >
+            Añadir
+          </button>
+        </div>
+        <!-- Lista de criterios agregados -->
+        <ul class="mt-2">
+          <li *ngFor="let criterio of challenge.criteriosEval; let i = index" class="flex items-center justify-between">
+            <span>{{ criterio }}</span>
+            <button
+              type="button"
+              (click)="eliminarCriterio(i)"
+              class="text-red-600 hover:text-red-800"
+            >
+              Eliminar
+            </button>
+          </li>
+        </ul>
+        <p class="text-xs text-gray-500 mt-1">Máximo 5 criterios. Debes agregar al menos 1 criterio.</p>
+      </div>
+
+      <!-- Cupos Disponibles -->
+      <div class="mb-4">
+        <label for="cuposParticipantes" class="block text-gray-700 text-sm font-bold mb-2">Cupos Disponibles</label>
+        <input
+          type="number"
+          id="cuposParticipantes"
+          name="cuposParticipantes"
+          required
+          [(ngModel)]="challenge.cuposParticipantes"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          placeholder="Ingrese el número de cupos disponibles"
+          min="1"
+        />
+      </div>
+
+      <!-- Valor inscripcion -->
+      <div class="mb-4">
+        <label for="challengePrice" class="block text-gray-700 text-sm font-bold mb-2">Valor de inscripcion</label>
+        <input
+          type="number"
+          id="challengePrice"
+          name="challengePrice"
+          required
+          [(ngModel)]="challenge.challengePrice"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          placeholder="Ingrese el valor de inscripcion para el desafio"
+          min="0"
+        />
+      </div>
+
+      <!-- Fecha de inicio -->
+      <div class="mb-6">
+        <label for="fechaInicio" class="block text-gray-700 text-sm font-bold mb-2">Fecha de Inicio</label>
+        <input
+          type="date"
+          id="fechaInicio"
+          name="fechaInicio"
+          required
+          [(ngModel)]="challenge.fechaI"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+
+      <!-- Fecha de Término -->
+      <div class="mb-6">
+        <label for="fechaTermino" class="block text-gray-700 text-sm font-bold mb-2">Fecha de Término</label>
+        <input
+          type="date"
+          id="fechaTermino"
+          name="fechaTermino"
+          required
+          [(ngModel)]="challenge.fechaT"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+
+      <!-- Imagen del Desafío -->
+      <div class="mb-4">
+        <label for="urlImagen" class="block text-gray-700 text-sm font-bold mb-2">Imagen del Desafío</label>
+        <input
+          type="url"
+          id="urlImagen"
+          [(ngModel)]="challenge.urlImagen " name = "urlImagen"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          placeholder="Ingrese la URL de la imagen"
+
+        />
+      </div>
+
+      <!-- Botones Guardar y Cancelar -->
+      <div class="flex justify-center space-x-4 mt-6">
+        <button
+          type="submit"
+          class="ud-menu-scroll py-2 px-4 text-base font-semibold text-white text-center bg-blue-700 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          Guardar
+        </button>
+
+        <button
+          type="button"
+          class="ud-menu-scroll py-2 px-4 text-base font-semibold text-white text-center bg-gray-500 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+          (click)="closeModal()"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+

@@ -1,0 +1,392 @@
+<div class="full-screen-bg">
+  <section class="bg-[#F4F7FF] py-14 lg:py-[90px] dark:bg-dark">
+    <div class="container">
+      <div class="flex flex-wrap -mx-4">
+        <div class="w-full px-4">
+          <div
+            class="wow fadeInUp relative mx-auto max-w-[700px] overflow-hidden rounded-xl shadow-form bg-white dark:bg-dark-2 py-14 px-8 text-center sm:px-12 md:px-[60px]"
+            data-wow-delay=".15s"
+          >
+            <div class="mb-10 text-center">
+              <div class="flex justify-center items-center space-x-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-10 h-10 text-blue-600"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"
+                  />
+                </svg>
+                <h2 class="text-2xl font-bold text-gray-800 dark:text-gray700">
+                  Crear Organización
+                </h2>
+              </div>
+            </div>
+
+            <form>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-[22px]">
+                <!-- Username -->
+                <div>
+                  <label
+                    for="username"
+                    class="block text-left mb-2 text-body-color dark:text-dark-6"
+                    >Username</label
+                  >
+                  <input
+                    type="text"
+                    name="username"
+                    class="w-full px-5 py-3 text-base transition bg-transparent border rounded-md outline-none border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 placeholder:text-dark-6 focus:border-primary dark:focus:border-primary focus-visible:shadow-none"
+                    (input)="onChange($event)"
+                    required
+                  />
+                </div>
+
+                <!-- Contraseña -->
+                <div>
+                  <label
+                    for="password"
+                    class="block text-left mb-2 text-body-color dark:text-dark-6"
+                    >Contraseña</label
+                  >
+                  <input
+                    type="password"
+                    name="password"
+                    class="w-full px-5 py-3 text-base transition bg-transparent border rounded-md outline-none border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 placeholder:text-dark-6 focus:border-primary dark:focus:border-primary focus-visible:shadow-none"
+                    (input)="onChange($event)"
+                    required
+                  />
+                </div>
+
+                <!-- Email -->
+                <div>
+                  <label
+                    for="email"
+                    class="block text-left mb-2 text-body-color dark:text-dark-6"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    name="email"
+                    class="w-full px-5 py-3 text-base transition bg-transparent border rounded-md outline-none border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 placeholder:text-dark-6 focus:border-primary dark:focus:border-primary focus-visible:shadow-none"
+                    (input)="onChange($event)"
+                    required
+                  />
+                </div>
+
+                <!-- Razón Social -->
+                <div>
+                  <label
+                    for="socialNameOrganization"
+                    class="block text-left mb-2 text-body-color dark:text-dark-6"
+                    >Razón Social</label
+                  >
+                  <input
+                    type="text"
+                    name="socialNameOrganization"
+                    class="w-full px-5 py-3 text-base transition bg-transparent border rounded-md outline-none border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 placeholder:text-dark-6 focus:border-primary dark:focus:border-primary focus-visible:shadow-none"
+                    (input)="onChange($event)"
+                    required
+                  />
+                </div>
+
+                <!-- Rut de la Organización -->
+                <div>
+                  <label
+                    for="rutOrganization"
+                    class="block text-left mb-2 text-body-color dark:text-dark-6"
+                    >RUT de la Organización</label
+                  >
+                  <input
+                    type="text"
+                    name="rutOrganization"
+                    class="w-full px-5 py-3 text-base transition bg-transparent border rounded-md outline-none border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 placeholder:text-dark-6 focus:border-primary dark:focus:border-primary focus-visible:shadow-none"
+                    (input)="onChange($event)"
+                    required
+                  />
+                </div>
+
+                <!-- Rut del Representante -->
+                <div>
+                  <label
+                    for="rutRepresentative"
+                    class="block text-left mb-2 text-body-color dark:text-dark-6"
+                    >RUT del Representante</label
+                  >
+                  <input
+                    type="text"
+                    name="rutRepresentative"
+                    class="w-full px-5 py-3 text-base transition bg-transparent border rounded-md outline-none border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 placeholder:text-dark-6 focus:border-primary dark:focus:border-primary focus-visible:shadow-none"
+                    (input)="onChange($event)"
+                    required
+                  />
+                </div>
+
+                <!-- Nombre Representante -->
+                <div>
+                  <label
+                    for="representativeName"
+                    class="block text-left mb-2 text-body-color dark:text-dark-6"
+                    >Nombre Representante</label
+                  >
+                  <input
+                    type="text"
+                    name="representativeName"
+                    class="w-full px-5 py-3 text-base transition bg-transparent border rounded-md outline-none border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 placeholder:text-dark-6 focus:border-primary dark:focus:border-primary focus-visible:shadow-none"
+                    (input)="onChange($event)"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Botones -->
+              <div class="flex justify-between items-center mt-6 space-x-4">
+                <!-- Botón Volver -->
+                <button
+                  type="button"
+                  class="w-full py-3 px-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold rounded-lg"
+                  (click)="onSelectBack()"
+                >
+                  Volver atrás
+                </button>
+
+                <!-- Botón Registrar -->
+                <button
+                  type="submit"
+                  class="w-full py-3 px-4 text-base text-white transition duration-300 ease-in-out bg-blue-500 hover:bg-blue-600 rounded-lg"
+                  (click)="onSubmit($event)"
+                >
+                  Registrarse
+                </button>
+              </div>
+            </form>
+
+            <div>
+              <span class="absolute top-1 right-1">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="1.39737"
+                    cy="38.6026"
+                    r="1.39737"
+                    transform="rotate(-90 1.39737 38.6026)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="1.39737"
+                    cy="1.99122"
+                    r="1.39737"
+                    transform="rotate(-90 1.39737 1.99122)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="13.6943"
+                    cy="38.6026"
+                    r="1.39737"
+                    transform="rotate(-90 13.6943 38.6026)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="13.6943"
+                    cy="1.99122"
+                    r="1.39737"
+                    transform="rotate(-90 13.6943 1.99122)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="25.9911"
+                    cy="38.6026"
+                    r="1.39737"
+                    transform="rotate(-90 25.9911 38.6026)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="25.9911"
+                    cy="1.99122"
+                    r="1.39737"
+                    transform="rotate(-90 25.9911 1.99122)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="38.288"
+                    cy="38.6026"
+                    r="1.39737"
+                    transform="rotate(-90 38.288 38.6026)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="38.288"
+                    cy="1.99122"
+                    r="1.39737"
+                    transform="rotate(-90 38.288 1.99122)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="1.39737"
+                    cy="26.3057"
+                    r="1.39737"
+                    transform="rotate(-90 1.39737 26.3057)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="13.6943"
+                    cy="26.3057"
+                    r="1.39737"
+                    transform="rotate(-90 13.6943 26.3057)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="25.9911"
+                    cy="26.3057"
+                    r="1.39737"
+                    transform="rotate(-90 25.9911 26.3057)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="38.288"
+                    cy="26.3057"
+                    r="1.39737"
+                    transform="rotate(-90 38.288 26.3057)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="1.39737"
+                    cy="14.0086"
+                    r="1.39737"
+                    transform="rotate(-90 1.39737 14.0086)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="13.6943"
+                    cy="14.0086"
+                    r="1.39737"
+                    transform="rotate(-90 13.6943 14.0086)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="25.9911"
+                    cy="14.0086"
+                    r="1.39737"
+                    transform="rotate(-90 25.9911 14.0086)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="38.288"
+                    cy="14.0086"
+                    r="1.39737"
+                    transform="rotate(-90 38.288 14.0086)"
+                    fill="#3056D3"
+                  />
+                </svg>
+              </span>
+              <span class="absolute left-1 bottom-1">
+                <svg
+                  width="29"
+                  height="40"
+                  viewBox="0 0 29 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="2.288"
+                    cy="25.9912"
+                    r="1.39737"
+                    transform="rotate(-90 2.288 25.9912)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="14.5849"
+                    cy="25.9911"
+                    r="1.39737"
+                    transform="rotate(-90 14.5849 25.9911)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="26.7216"
+                    cy="25.9911"
+                    r="1.39737"
+                    transform="rotate(-90 26.7216 25.9911)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="2.288"
+                    cy="13.6944"
+                    r="1.39737"
+                    transform="rotate(-90 2.288 13.6944)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="14.5849"
+                    cy="13.6943"
+                    r="1.39737"
+                    transform="rotate(-90 14.5849 13.6943)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="26.7216"
+                    cy="13.6943"
+                    r="1.39737"
+                    transform="rotate(-90 26.7216 13.6943)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="2.288"
+                    cy="38.0087"
+                    r="1.39737"
+                    transform="rotate(-90 2.288 38.0087)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="2.288"
+                    cy="1.39739"
+                    r="1.39737"
+                    transform="rotate(-90 2.288 1.39739)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="14.5849"
+                    cy="38.0089"
+                    r="1.39737"
+                    transform="rotate(-90 14.5849 38.0089)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="26.7216"
+                    cy="38.0089"
+                    r="1.39737"
+                    transform="rotate(-90 26.7216 38.0089)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="14.5849"
+                    cy="1.39761"
+                    r="1.39737"
+                    transform="rotate(-90 14.5849 1.39761)"
+                    fill="#3056D3"
+                  />
+                  <circle
+                    cx="26.7216"
+                    cy="1.39761"
+                    r="1.39737"
+                    transform="rotate(-90 26.7216 1.39761)"
+                    fill="#3056D3"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

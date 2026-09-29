@@ -1,0 +1,36 @@
+<div class="auth-content">
+</div>
+
+<div class="flex flex-col p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+    <!-- Título encima de los datos -->
+    <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">
+        Información Personal
+    </h2>
+
+    <!-- Contenedor para ícono y datos -->
+    <div class="flex items-center">
+        <!-- Aquí cambiamos el SVG por uno que representa contactos -->
+        <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                    d="M12 12c2.7 0 4.5-1.8 4.5-4.5S14.7 3 12 3 7.5 4.8 7.5 7.5 9.3 12 12 12zm0 2c-3.9 0-7.5 2.6-7.5 6v1h15v-1c0-3.4-3.6-6-7.5-6z">
+                </path>
+            </svg>
+        </div>
+
+        <!-- Contenedor de datos -->
+        <div>
+            <ul>
+                <li *ngFor="let user of data">
+                    <strong>Nombre:</strong> {{ user.getFullName() }}<br />
+                    <strong>Email:</strong> {{ user.email }}<br />
+                    <strong>Teléfono:</strong> {{ user.phoneNumber }}<br />
+                    <strong>Dirección:</strong> {{ user.address }}<br />
+                    <strong>Ocupación:</strong> {{ user.occupation }}<br />
+                    <strong>Fecha de Nacimiento:</strong> {{ user.dateOfBirth | date: 'yyyy-MM-dd' }}<br />
+                    <strong>Rol:</strong> {{ user.role }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

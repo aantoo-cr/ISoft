@@ -1,0 +1,25 @@
+<div class="grid grid-cols-3 gap-4 place-items-center">
+
+  <div *ngFor="let product of products">
+    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      <img [src]="product.proImage" alt="{{product.proName}}" class="w-full">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">{{ product.proName }}</div>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <button (click)="openProductDetails(product)"
+                class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">Ver detalles
+        </button>
+
+        <span class="bg-blue-400 text-white font-bold py-2 px-4 rounded-full">{{ product.proPrice }}</span>
+      </div>
+
+    </div>
+  </div>
+  <app-product-details
+    [showPopup]="showProductDetails"
+    [product]="selectedProduct"
+    (popupClosed)="handlePopupClosed()">
+  </app-product-details>
+</div>
+

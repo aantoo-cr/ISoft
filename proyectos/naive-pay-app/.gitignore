@@ -1,0 +1,29 @@
+/.idea/
+/.vscode/
+/naive-pay-ui/.vscode/
+/naive-pay-ui/node_modules/
+
+/naive-pay-api/.idea/
+/naive-pay-api/.mvn/
+/naive-pay-api/.mvn/wrapper
+/naive-pay-api/target/
+
+
+# Compiled output
+/naive-pay-ui/dist
+/naive-pay-ui/tmp
+/naive-pay-ui/out-tsc
+/naive-pay-ui/bazel-out
+
+/naive-pay-ui/npm-debug.log
+/naive-pay-ui/yarn-error.log
+
+
+# Miscellaneous
+/naive-pay-ui/.angular/cache
+/naive-pay-ui.sass-cache/
+/naive-pay-ui/connect.lock
+/naive-pay-ui/coverage
+/naive-pay-ui/libpeerconnection.log
+/naive-pay-ui/testem.log
+/naive-pay-ui/typings

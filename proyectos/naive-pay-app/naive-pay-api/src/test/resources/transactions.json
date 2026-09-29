@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "date": "2024-10-23",
+    "time": "10:00:00",
+    "amount": 1000,
+    "serviceType": "Servicio",
+    "originRut": "123456789",
+    "destinationRut": "987654321",
+    "commerceName": "Commerce A",
+    "state": "Aprobado",
+    "deviceName": "Device A"
+  },
+  {
+    "id": 2,
+    "date": "2024-10-23",
+    "time": "10:30:00",
+    "amount": 2000,
+    "serviceType": "Servicio",
+    "originRut": "123456789",
+    "destinationRut": "654321987",
+    "commerceName": "Commerce B",
+    "state": "Pendiente",
+    "deviceName": "Device B"
+  },
+  {
+    "id": 3,
+    "date": "2024-10-23",
+    "time": "11:00:00",
+    "amount": 1500,
+    "serviceType": "Producto",
+    "originRut": "987654321",
+    "destinationRut": "123456789",
+    "commerceName": "Commerce C",
+    "state": "Rechazado",
+    "deviceName": "Device C"
+  }
+]

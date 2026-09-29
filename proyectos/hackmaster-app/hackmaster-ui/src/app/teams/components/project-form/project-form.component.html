@@ -1,0 +1,73 @@
+<div class="min-h-screen flex flex-col">
+  <!-- Header -->
+  <app-header class="header"></app-header>
+
+  <!-- Contenido principal -->
+  <main class="flex-grow flex items-center justify-center">
+    <div class="max-w-3xl mx-auto bg-white shadow-md rounded-md p-8 mt-10">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Crear Nuevo Proyecto</h2>
+
+      <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" class="space-y-6">
+        <!-- Nombre del Proyecto -->
+        <div>
+          <label for="project-name" class="block text-sm font-medium text-gray-700">Nombre del Proyecto</label>
+          <input
+            type="text"
+            id="project-name"
+            formControlName="name"
+            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Ingresa el nombre del proyecto"
+          />
+          <small *ngIf="projectForm.get('name')?.touched && projectForm.get('name')?.invalid" class="text-red-500">
+            El nombre es obligatorio y debe tener al menos 3 caracteres.
+          </small>
+        </div>
+
+        <!-- Descripción del Proyecto -->
+        <div>
+          <label for="description" class="block text-sm font-medium text-gray-700">Descripción</label>
+          <textarea
+            id="description"
+            rows="4"
+            formControlName="description"
+            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Escribe una descripción del proyecto"
+          ></textarea>
+          <small *ngIf="projectForm.get('description')?.touched && projectForm.get('description')?.invalid" class="text-red-500">
+            La descripción es obligatoria y debe tener al menos 10 caracteres.
+          </small>
+        </div>
+
+        <!-- URL del Repositorio -->
+        <div>
+          <label for="repository-url" class="block text-sm font-medium text-gray-700">URL del Repositorio</label>
+          <input
+            type="url"
+            id="repository-url"
+            formControlName="repositoryUrl"
+            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="https://github.com/usuario/repositorio"
+          />
+          <small *ngIf="projectForm.get('repositoryUrl')?.touched && projectForm.get('repositoryUrl')?.invalid" class="text-red-500">
+            Debe ser una URL válida.
+          </small>
+        </div>
+
+        <!-- Botón de Enviar -->
+        <div class="flex justify-center">
+          <button
+            type="submit"
+            class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+            Crear Proyecto
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <app-footer class="footer bg-gray-100 text-center py-4">
+    <p class="text-sm text-gray-600">© 2024 Tu Proyecto. Todos los derechos reservados.</p>
+  </app-footer>
+</div>

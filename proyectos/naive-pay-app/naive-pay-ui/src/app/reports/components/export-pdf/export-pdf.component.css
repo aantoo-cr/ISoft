@@ -1,0 +1,25 @@
+.export-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    color: #555;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.export-button:hover {
+    background-color: #e2e6ea;
+}
+
+.export-button img {
+    width: 24px;
+    height: 24px;
+}

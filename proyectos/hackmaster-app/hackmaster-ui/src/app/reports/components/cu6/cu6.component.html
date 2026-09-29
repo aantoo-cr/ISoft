@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Detalles de Hackatones</h2>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="participantName">
+    <h3>{{ actorType }} : {{ participantName }} </h3>
+
+    <table *ngIf="hackatones.length > 0" class="table table-striped">
+      <thead>
+      <tr>
+        <th>Nombre del Hackathon</th>
+        <th>Fecha de Inicio</th>
+        <th>Fecha de Término</th>
+        <th>Detalles</th> <!-- Nueva columna para los detalles -->
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let hackaton of hackatones">
+        <td>{{ hackaton.hackatonName }}</td>
+        <td>{{ hackaton.hackatonStartDate | date }}</td>
+        <td>{{ hackaton.hackatonEndDate | date }}</td>
+        <td>
+          <button [routerLink]="['/reports/cu7', actorId, hackaton.hackatonId]" class="button">Ver detalles</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="hackatones.length === 0" class="alert alert-info">
+      No ha participado en ningún Hackathon.
+    </div>
+    <br>
+    <!-- Botón de volver -->
+    <button (click)="goBack()" class="button">Volver</button>
+  </div>
+</div>

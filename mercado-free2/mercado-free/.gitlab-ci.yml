@@ -1,0 +1,58 @@
+# Variables
+
+stages:
+  - documentation
+  - package
+  - build-app-dev
+
+documentation:
+  stage: documentation
+  image: maven:3.8.5-openjdk-17
+  only:
+    - develop
+  script:
+    - cd api/
+    - mvn javadoc:javadoc
+  artifacts:
+    paths:
+      - target/site/apidocs/*
+
+package:
+  stage: package
+  image: maven:3.8.5-openjdk-17
+  only:
+    - develop
+  script:
+    - cd api/
+    - mvn clean package -DskipTests
+  artifacts:
+    paths:
+      - target/*.jar
+
+build-backend:
+  stage: build-app-dev
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  variables:
+    BACKEND_IMAGE: $CI_REGISTRY/$CI_PROJECT_PATH/api:latest
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $BACKEND_IMAGE ./api
+    - docker push $BACKEND_IMAGE
+  only:
+    - develop
+
+build-frontend:
+  stage: build-app-dev
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  variables:
+    FRONTEND_IMAGE: $CI_REGISTRY/$CI_PROJECT_PATH/ui:latest
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $FRONTEND_IMAGE ./ui
+    - docker push $FRONTEND_IMAGE
+  only:
+    - develop

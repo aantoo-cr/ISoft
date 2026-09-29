@@ -1,0 +1,76 @@
+<div class="container mx-auto p-4">
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-2xl mx-auto">
+        <h1 class="text-3xl font-bold text-center text-black-600 mb-4">Naive-Pay</h1>
+        <h3 class="text-xl text-center text-gray-600 mb-6">Claves Generadas</h3>
+
+        <!-- Barra de progreso completa -->
+        <div class="w-full bg-gray-300 h-2 mb-6">
+            <div class="bg-purple-600 h-full w-1/2" style="width: 75%;"></div>
+        </div>
+
+        <p class="text-justify text-gray-600 mb-4">
+            Estas son sus claves pública y privada que utilizará al momento de realizar transacciones.
+            Es importante que guarde ambas claves localmente en su computadora de manera segura.
+        </p>
+
+        <!-- Mostrar claves cuando estén disponibles -->
+        <div *ngIf="publicKey && privateKey">
+            <!-- Contenedor para Clave Pública -->
+            <div class="mb-6">
+                <div class="flex justify-between items-center bg-gray-200 rounded-t-lg p-2">
+                    <span class="text-lg font-semibold text-gray-800">Clave Pública</span>
+                    <div class="flex gap-2">
+                        <button *ngIf="!copiedPublic" (click)="copyToClipboard(publicKey, 'public')"
+                                class="bg-purple-600 text-white py-1 px-3 rounded hover:bg-purple-700 focus:outline-none">
+                            Copiar clave
+                        </button>
+                        <button (click)="downloadKey(publicKey, 'public_key.txt')"
+                                class="bg-gray-600 text-white py-1 px-3 rounded hover:bg-gray-700 focus:outline-none">
+                            Descargar clave
+                        </button>
+                    </div>
+                    <span *ngIf="copiedPublic" class="text-green-600 font-semibold">¡Copiado!</span>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-b-lg text-gray-700 overflow-y-auto max-h-64 w-full break-words">
+                    <pre class="whitespace-pre-wrap">{{ publicKey }}</pre>
+                </div>
+            </div>
+
+            <!-- Contenedor para Clave Privada -->
+            <div class="mb-6">
+                <div class="flex justify-between items-center bg-gray-200 rounded-t-lg p-2">
+                    <span class="text-lg font-semibold text-gray-800">Clave Privada</span>
+                    <div class="flex gap-2">
+                        <button *ngIf="!copiedPrivate" (click)="copyToClipboard(privateKey, 'private')"
+                                class="bg-purple-600 text-white py-1 px-3 rounded hover:bg-purple-700 focus:outline-none">
+                            Copiar clave
+                        </button>
+                        <button (click)="downloadKey(privateKey, 'private_key.txt')"
+                                class="bg-gray-600 text-white py-1 px-3 rounded hover:bg-gray-700 focus:outline-none">
+                            Descargar clave
+                        </button>
+                    </div>
+                    <span *ngIf="copiedPrivate" class="text-green-600 font-semibold">¡Copiado!</span>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-b-lg text-gray-700 overflow-y-auto max-h-64 w-full break-words">
+                    <pre class="whitespace-pre-wrap">{{ privateKey }}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mostrar error si ocurre -->
+        <div *ngIf="errorMessage" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-6">
+            <strong class="font-bold">Error:</strong>
+            <span class="block sm:inline">{{ errorMessage }}</span>
+        </div>
+
+        <!-- Botón de aceptar -->
+        <div class="text-center mt-6">
+            <button
+                (click)="onAccept()"
+                class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 focus:outline-none">
+                Aceptar
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Reporte de Hackathon: {{ hackathonName }}</h2>
+  <h4>Juez: {{ actorName }} ({{ actorType }})</h4>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <section *ngIf="ranking.length > 0">
+    <h3>Ranking de Equipos</h3>
+    <ul>
+      <li *ngFor="let team of ranking">
+        <strong>Equipo:</strong> {{ team.teamName }} - <strong>Promedio:</strong> {{ team.promedioNotaGrupo }}
+      </li>
+    </ul>
+  </section>
+
+  <section *ngIf="grades.length > 0">
+    <h3>Notas por Equipo</h3>
+    <ul>
+      <li *ngFor="let grade of grades">
+        <strong>Equipo:</strong> {{ grade.teamName }} - <strong>Promedio:</strong> {{ grade.promedioNotaGrupo }} - <strong>Nota Juez:</strong> {{ grade.notaJuez }}
+      </li>
+    </ul>
+  </section>
+
+  <div *ngIf="ranking.length === 0 && grades.length === 0" class="alert alert-info">
+    No se encontraron datos de ranking o notas para este hackathon.
+  </div>
+  <br>
+  <!-- Botón de volver -->
+  <button (click)="goBack()" class="button">Volver</button>
+</div>

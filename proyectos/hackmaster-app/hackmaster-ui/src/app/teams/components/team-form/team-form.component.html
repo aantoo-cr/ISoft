@@ -1,0 +1,63 @@
+<app-header></app-header>
+<div [ngClass]="{ inactive: showMemberNameForm || showMemberEmailForm }" class="form-wrapper">
+  <h3 class="form-title">Formulario</h3>
+  <div class="separator"></div>
+  <form [formGroup]="teamForm" (ngSubmit)="onSubmit()" class="form">
+    <div class="form-group">
+      <label for="teamName" class="form-label">Nombre del equipo:</label>
+      <input id="teamName" type="text" formControlName="teamName" class="form-input"
+        [ngClass]="getErrorClasses(teamName)" placeholder="Ingresa el nombre del equipo" />
+      @if(teamName?.touched && teamName?.errors) {
+      @if(teamName?.hasError('required')) {
+      <small class="error">El nombre del equipo no puede ir vacío.</small>
+      } @if(teamName?.hasError('pattern')) {
+      <small class="error">El nombre del equipo solo puede contener letras y espacios.
+      </small>
+      } } @if(conflictError) {
+      <small class="error">Equipo ya existente. </small>
+      }
+    </div>
+
+    <div class="form-group form-members-group">
+      <label class="form-label form-members-label" for="teamMembers">Miembros:</label>
+      @for (member of members; track member.name; let idx = $index) {
+        <div>
+          <p>
+            <span class="member-name">{{ member.name }}</span> /
+            <span class="member-email">{{ member.email }}</span>
+          </p>
+        </div>
+        }
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="form-group form-members-btn">
+      <button type="button" class="add-members-btn" (click)="openMemberNameForm()">Añadir</button>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="submit-btn">Crear equipo</button>
+    </div>
+  </form>
+</div>
+
+@if(showMemberNameForm) {
+<app-members-form class="members-form" [form]="memberNameForm" label="Ingresa el nombre del miembro:" buttonText="Continuar"
+  placeholder="Ej: Juan Ríos Pérez" controlName="memberName" controlId="memberName"
+  [requiredErrorMessage]="'El nombre del equipo no puede ir vacío.'"
+  [validationErrorMessage]="'El nombre del equipo solo puede contener letras y espacios.'"
+  (formSubmitted)="closeMemberNameForm()">
+</app-members-form>
+}
+
+@if(showMemberEmailForm) {
+<app-members-form class="members-form" [form]="memberEmailForm" label="Ingresa el correo del miembro:"
+  buttonText="Añadir miembro" placeholder="Ej: juanrios@gmail.com" controlName="memberEmail" controlId="memberEmail"
+  [requiredErrorMessage]="'El correo es obligatorio.'"
+  [validationErrorMessage]="'El correo solo puede contener letras, números, y símbolos válidos.'"
+  [validationType]="'email'" (formSubmitted)="closeMemberEmailForm()">
+</app-members-form>
+}
+
+<app-footer></app-footer>

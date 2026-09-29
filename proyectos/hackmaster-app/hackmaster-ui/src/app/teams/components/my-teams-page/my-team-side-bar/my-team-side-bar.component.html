@@ -1,0 +1,14 @@
+<app-side-bar>
+  <div class="sidebar-item">
+    <fa-icon [icon]="faChalkboardUser" class="sidebar-icon"></fa-icon>
+    <button class="sidebar-btn" (click)="onCreateTeamClick()">Crear equipo</button>
+  </div>
+  <div class="sidebar-item">
+    <fa-icon [icon]="faUser" class="sidebar-icon"></fa-icon>
+    <button class="sidebar-btn" (click)="onProfileClick()">Perfil</button>
+  </div>
+  <div class="sidebar-item">
+    <fa-icon [icon]="faProjectDiagram" class="sidebar-icon"></fa-icon>
+    <button class="sidebar-btn" (click)="onChallengeClick()">Desafío</button>
+  </div>
+</app-side-bar>

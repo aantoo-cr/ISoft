@@ -1,0 +1,93 @@
+/* Estilos generales */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.container {
+  text-align: center;
+}
+
+/* Estilos para el contenedor del título */
+.title-container {
+  margin-bottom: 20px; /* Espacio entre el título y el cuadro de inicio de sesión */
+}
+
+/* Estilos para el título */
+.title {
+  font-size: 2.5em; /* Ajusta el tamaño de la fuente */
+  font-family: 'Arial', 'Helvetica', sans-serif; /* Cambia la fuente a Courier New */
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilos para el cuadro de inicio de sesión */
+.signin {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  margin: 0 auto; /* Centra el cuadro de inicio de sesión dentro del contenedor */
+  text-align: center;
+}
+
+.signin img {
+  width: 60px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.inputBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.inputBox i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.inputBox input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+}
+
+/* Estilo para los botones al pasar el cursor */
+.inputBox input[type="button"],
+.inputBox input[type="submit"] {
+  width: 50%;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #333;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+.inputBox input[type="button"]:hover,
+.inputBox input[type="submit"]:hover {
+  background-color: #4CAF50; /* Cambia el color de fondo al pasar el cursor */
+  color: white; /* Cambia el color del texto */
+}
+
+.inputBox input[type="submit"]:hover,
+.inputBox a:hover {
+  background-color: #eaeaea;
+}

@@ -1,0 +1,5 @@
+<div class="teams-container">
+  @for (team of teams; track team.name; let idx = $index) {
+  <app-team-card [team]=team class="team-card"></app-team-card>
+  }
+</div>

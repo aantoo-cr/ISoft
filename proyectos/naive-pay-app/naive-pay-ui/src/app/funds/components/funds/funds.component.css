@@ -1,0 +1,242 @@
+/**
+ * Estilos globales para la página web.
+ * Define la fuente por defecto de la página como Arial o sans-serif.
+ */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/**
+ * Contenedor principal para formularios o áreas de contenido en la página.
+ * @property width Define el ancho fijo del contenedor en 300px, ideal para formularios compactos.
+ * @property margin Centra el contenedor horizontalmente en la página.
+ * @property padding Añade un espacio interno de 20px para separar el contenido de los bordes.
+ * @property border Aplica un borde gris claro de 1px de grosor.
+ * @property border-radius Redondea las esquinas del contenedor con un radio de 5px.
+ */
+.container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/**
+ * Estilo de encabezado centrado dentro del contenedor.
+ * @property text-align Centra el texto horizontalmente.
+ * @property margin-bottom Añade un margen inferior de 20px para separar el encabezado del contenido.
+ */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/**
+ * Configuración de contenedores de contenido para disposición en columnas.
+ * @property display Define el contenedor como un elemento de caja flexible.
+ * @property flex-direction Organiza los elementos en una columna vertical.
+ * @property gap Espaciado de 10px entre cada elemento de la columna.
+ */
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/**
+ * Campo de entrada de contraseña con un estilo sencillo.
+ * @property padding Añade un espacio interno de 10px para mejorar la usabilidad.
+ * @property border Establece un borde gris claro de 1px.
+ * @property border-radius Redondea las esquinas con un radio de 5px para una apariencia amigable.
+ */
+input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/**
+ * Botón de acción con estilo llamativo.
+ * @property padding Añade espacio interno de 10px para que el botón sea fácil de presionar.
+ * @property background-color Establece un fondo azul.
+ * @property color Texto en color blanco para un contraste óptimo.
+ * @property border Sin borde adicional.
+ * @property border-radius Bordes redondeados de 5px.
+ * @property cursor Cambia el cursor a puntero en hover.
+ * @property transition Añade una transición suave para el cambio de color de fondo.
+ */
+.button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/**
+ * Efecto de hover para el botón.
+ * @property background-color Cambia a un tono azul más oscuro en hover.
+ */
+.button:hover {
+    background-color: #0056b3;
+}
+
+/**
+ * Contenedor para listar transacciones con fondo claro.
+ * @property border Borde gris claro de 1px.
+ * @property padding Añade espacio interno de 15px para organizar las transacciones.
+ * @property width Ancho completo con un máximo de 600px.
+ * @property margin Centra el contenedor en la página.
+ * @property background-color Fondo gris claro para diferenciar visualmente el área.
+ */
+.transacciones-container {
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+}
+
+/**
+ * Formato de cada transacción.
+ * @property font-size Define el tamaño de fuente en 14px para legibilidad.
+ * @property margin Añade un margen vertical de 5px para espaciar cada transacción.
+ */
+.transaccion p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/**
+ * Estilo para texto destacado dentro de cada transacción.
+ * @property color Color gris oscuro para destacar información importante.
+ */
+.transaccion strong {
+    color: #333;
+}
+
+/**
+ * Línea divisoria entre transacciones.
+ * @property margin-top Añade un margen superior de 10px para separar transacciones.
+ * @property border Línea gris claro de 1px.
+ */
+.transaccion hr {
+    margin-top: 10px;
+    border: 1px solid #eee;
+}
+
+/**
+ * Tabla de datos con bordes colapsados.
+ * @property width Ocupa el 100% del ancho del contenedor.
+ * @property border-collapse Colapsa los bordes de las celdas para un diseño más limpio.
+ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/**
+ * Celdas de la tabla para cabecera y cuerpo.
+ * @property padding Añade espacio interno de 8px.
+ * @property text-align Alineación del texto a la izquierda.
+ */
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+/**
+ * Fondo de las celdas de cabecera.
+ * @property background-color Fondo gris claro para destacar la cabecera de la tabla.
+ */
+th {
+    background-color: #f2f2f2;
+}
+
+/**
+ * Colores específicos para el texto, indicativos de estados.
+ * @property color Asigna un color de acuerdo al contexto (verde, rojo, amarillo).
+ */
+.text-green-500 { color: #48bb78; } /* Verde */
+.text-red-500 { color: #f56565; }   /* Rojo */
+.text-yellow-500 { color: #ecc94b; } /* Amarillo */
+
+/**
+ * Contenedor de mensajes de notificación.
+ * @property height Altura fija para el espacio reservado.
+ * @property width Ocupa el ancho completo.
+ * @property display Alineación del contenido con Flexbox.
+ * @property align-items Centra los elementos verticalmente.
+ * @property justify-content Centra los elementos horizontalmente.
+ * @property background-color Fondo vacío por defecto.
+ */
+.message-container {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+/**
+ * Contenedor interno de los mensajes.
+ * @property width Los mensajes ocupan todo el ancho disponible.
+ */
+.message-container > div {
+    width: 100%;
+}
+
+/**
+ * Estilo para botones estilizados.
+ * @property width Define el ancho fijo de los botones.
+ * @property height Define la altura fija de los botones para mantener consistencia.
+ * @property background-color Color de fondo uniforme para los botones.
+ * @property color Texto blanco.
+ * @property border Sin bordes para mantener la estética.
+ * @property border-radius Bordes redondeados ligeramente.
+ * @property box-shadow Sombra suave alrededor del botón.
+ * @property font-size Tamaño del texto en el botón.
+ * @property font-weight Texto en negrita para resaltar el botón.
+ * @property text-align Centra el texto dentro del botón.
+ * @property cursor Cambia a puntero al pasar por encima.
+ * @property transition Suaviza los efectos de cambios visuales.
+ */
+.styled-button {
+    width: 160px;
+    height: 40px;
+    background-color: #9334EA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/**
+ * Efecto hover para los botones estilizados.
+ * @property background-color Oscurece ligeramente el fondo cuando el mouse pasa sobre el botón.
+ * @property box-shadow Incrementa la sombra al pasar el mouse.
+ */
+.styled-button:hover {
+    background-color: #7a2bd1;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/**
+ * Efecto al hacer clic en los botones estilizados.
+ * @property transform Reduce ligeramente el tamaño del botón al presionar.
+ * @property box-shadow Reduce la sombra para dar el efecto de clic.
+ */
+.styled-button:active {
+    transform: scale(0.98);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}

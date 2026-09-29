@@ -1,0 +1,119 @@
+<div
+  class="bg-gradient-to-br from-sky-500 to-blue-700 min-h-screen justify-center items-center py-14 lg:py-[90px] dark:bg-dark"
+>
+  <div class="container flex flex-wrap justify-center gap-8 max-w-3xl">
+    <!-- PARTICIPANTE -->
+    <div
+      class="relative max-w-mb w-75 overflow-hidden rounded-2xl shadow-lg bg-white dark:bg-dark-2 text-center flex flex-col justify-between py-10 px-8 items-center transform transition duration-300 hover:scale-105 hover:shadow-2xl"
+    >
+      <!-- Header -->
+      <div class="mb-5 flex flex-col items-center">
+        <a href="#" class="flex flex-col items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-24 h-24 text-blue-500 dark:text-blue-400 transition-transform duration-300 hover:rotate-12"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+          </svg>
+          <h5
+            class="mt-3 mb-1 text-4xl font-semibold tracking-wide text-gray-900 dark:text-gray-600"
+          >
+            Participante
+          </h5>
+        </a>
+      </div>
+
+      <!-- Cuerpo -->
+      <div
+        class="text-gray-700 dark:text-gray-600 mb-5 px-4 flex-grow leading-relaxed"
+      >
+        <p class="mb-3 text-2xl font-light">
+          Si deseas participar en una hackatón, este es el tipo de cuenta que
+          necesitas crear. Obtendrás acceso inmediato a tu perfil y podrás
+          comenzar a participar sin necesidad de validación por parte de un
+          administrador.
+        </p>
+      </div>
+
+      <!-- Footer -->
+      <div class="mt-auto">
+        <button
+          (click)="onSelectParticipant()"
+          class="inline-flex items-center px-9 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:focus:ring-blue-800"
+        >
+          Crear Participante
+        </button>
+      </div>
+    </div>
+
+    <!-- ORGANIZACIÓN -->
+    <div
+      class="relative max-w-mb w-75 overflow-hidden rounded-2xl shadow-lg bg-white dark:bg-dark-2 text-center flex flex-col justify-between py-10 px-8 items-center transform transition duration-300 hover:scale-105 hover:shadow-2xl"
+    >
+      <!-- Header -->
+      <div class="mb-5 flex flex-col items-center">
+        <a href="#" class="flex flex-col items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-24 h-24 text-blue-500 dark:text-blue-400 transition-transform duration-300 hover:rotate-12"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"
+            />
+          </svg>
+          <h5
+            class="mt-3 mb-1 text-4xl font-semibold tracking-wide text-gray-900 dark:text-gray-600"
+          >
+            Organización
+          </h5>
+        </a>
+      </div>
+
+      <!-- Cuerpo -->
+      <div
+        class="text-gray-700 dark:text-gray-600 mb-5 px-4 flex-grow leading-relaxed"
+      >
+        <p class="mb-3 text-2xl font-light">
+          Si eres el representante de una organización y deseas registrarla en
+          la plataforma, esta es la cuenta adecuada para ti. El acceso será
+          otorgado una vez que un administrador verifique la validez de los
+          datos de la organización.
+        </p>
+      </div>
+
+      <!-- Footer -->
+      <div class="mt-auto">
+        <button
+          (click)="onSelectOrganization()"
+          class="inline-flex items-center px-9 py-4 text-base fiont-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:focus:ring-blue-800"
+        >
+          Crear Organización
+        </button>
+      </div>
+    </div>
+
+    <!-- Botón de Volver Atrás -->
+    <div class="w-full flex justify-center mt-2">
+      <button
+        class="inline-flex items-center px-12 py-4 text-lg font-semibold text-white bg-gradient-to-r from-red-500 to-red-600 rounded-lg shadow-xl transform transition duration-300 hover:scale-110 hover:shadow-2xl focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:focus:ring-red-800"
+        (click)="onSelectBack()"
+      >
+        Volver Atrás
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispositivo Vinculado</title>
+    <link href="/dist/output.css" rel="stylesheet">
+</head>
+<body class="h-full bg-white">
+<div class="flex h-full">
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+
+        <!-- Content -->
+        <div class="flex-1 flex flex-col items-center justify-center px-6 py-12 lg:px-8">
+            <div class="sm:mx-auto sm:w-full sm:max-w-md text-center bg-white shadow-lg rounded-lg p-6">
+                <h2 class="text-2xl font-bold tracking-tight text-gray-900">Naive Pay</h2>
+                <h1 class="mt-4 text-3xl font-semibold text-gray-800">Dispositivo Vinculado</h1>
+                <p class="mt-2 text-sm text-gray-600">Su dispositivo {{ deviceName }} {{ deviceModel }} ha sido vinculado exitosamente</p>
+
+                <div class="mt-6">
+                    <button (click)="volverInicio()" class="bg-purple-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 disabled:bg-gray-400">
+                        Ir al Inicio
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

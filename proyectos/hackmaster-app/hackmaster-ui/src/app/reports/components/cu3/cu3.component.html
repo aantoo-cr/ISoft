@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Detalles del Hackathon</h2>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="hackathonDetail" class="hackathon-detail">
+    <h3>{{ hackathonDetail.hackatonName }}</h3>
+    <p><strong>Organizador:</strong> {{ hackathonDetail.actorName }} ({{ hackathonDetail.actorType }})</p>
+    <p><strong>Total de Inscripciones:</strong> {{ hackathonDetail.numberOfRegistrations }}</p>
+    <p><strong>Total de Ingresos:</strong> {{ hackathonDetail.totalRevenue | currency }}</p>
+    <p><strong>Número de Equipos:</strong> {{ hackathonDetail.numberOfTeams }}</p>
+
+    <h4>Miembros por Equipo</h4>
+    <ul>
+      <li *ngFor="let count of hackathonDetail.membersCountPerTeam">
+        {{ count }} miembros
+      </li>
+    </ul>
+  </div>
+
+  <!-- Botón para volver a la página anterior -->
+  <div class="back-button">
+    <button (click)="goBack()" class="button">Volver</button>
+  </div>
+</div>
